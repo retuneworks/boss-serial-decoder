@@ -38,5 +38,24 @@ mainへ直接コミットまたはPushせず、agent/から始まる作業ブラ
 更新内容：
 ［ここに変更したい内容を日本語で入力］
 
-mainへ直接コミットまたはPushせず、agent/から始まる作業ブランチを使用してください。変更後はnpm testとnpm run generate-pagesを実行し、生成されたdocs/に変更がある場合は必要な生成物もコミットしてください。すべて成功したらGitHubへPushし、mainをベースとするPull Requestを作成してください。GitHub Actionsが成功したことを確認し、問題がなければmainへマージしてください。マージ後はGitHub Pagesの公開完了と公開結果を確認してください。テスト、GitHub Actions、または公開確認で問題が発生した場合は、無理にマージやDeployを進めず原因を報告してください。
+次の正式フローに従ってください。
+
+1. mainを最新のorigin/mainへ更新する
+2. mainへ直接コミットまたはPushせず、agent/から始まる作業ブランチを作成する
+3. 既存仕様とテストを確認してから変更する。既存のBOSS年代判定結果と販売期間・シリアル整合性判定を壊さない
+4. npm testを実行する
+5. npm run generate-pagesを実行する
+6. docs/に意図しない差分がないことを確認する。意図した生成物の変更がある場合は必要な生成物もコミットする
+7. 意図したファイルだけをコミットしてGitHubへPushする
+8. mainをベースとするPull Requestを作成する
+9. Pull RequestのGitHub Actions validateが成功することを確認する
+10. validate成功後のみ、通常のGitHub CLIコマンド gh pr merge --merge でmainへマージする
+11. --adminなどでmainの保護ルールを迂回しない
+12. mainで実行されるValidateが成功することを確認する
+13. GitHub PagesのDeployが成功することを確認する
+14. 公開サイトがHTTP 200で応答することを確認する
+15. すべて成功した後、不要なagent/作業ブランチをローカルとリモートから削除する
+16. 途中で問題が発生した場合は無理にマージやDeployを進めず停止し、原因を報告する
+
+GitHubのAuto Merge機能は必須とせず、上記の通常マージを使用してください。
 ```
