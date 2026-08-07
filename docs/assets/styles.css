@@ -254,6 +254,7 @@ html:lang(en) .field.required > span::after { content: " Required"; }
 .content-card-wide { grid-column: 1 / -1; }
 .content-card h2 { margin: 0 0 .5rem; font-size: 1.15rem; }
 .content-card p { margin: 0; color: var(--muted); }
+.content-card p + p { margin-top: .9rem; }
 .breadcrumbs { margin: 0 0 2.5rem; color: var(--muted); font-size: .84rem; }
 .breadcrumbs a, .text-link { text-underline-offset: .25em; }
 
