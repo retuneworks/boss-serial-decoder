@@ -51,7 +51,15 @@ assert.match(app, /特殊な流通個体/);
 assert.match(app, /型式入力エラー/);
 assert.match(app, /シリアル入力エラー/);
 assert.match(html, /制作・運営：RETUNE WORKS/);
-assert.match(html, /本サイトはRoland／BOSS公式ではありません。表示される製造年月は、公開情報と実機調査をもとにした非公式の推定です。/);
-assert.match(html, /特定のシリアルが実際に発行されたこと、製品の真贋、シリアルラベルの交換の有無を保証するものではありません。/);
+assert.match(html, /判定結果は参考情報であり、正確性、完全性、最新性を保証するものではありません。/);
+assert.match(html, /購入・販売・査定・鑑定・修理などの最終判断は、利用者ご自身の責任で行ってください。/);
+
+const aboutHtml = await fs.readFile(new URL('../docs/about.html', import.meta.url), 'utf8');
+assert.match(aboutHtml, /シリアルラベルの交換・貼り替え、修理歴、部品交換、仕様変更/);
+assert.match(aboutHtml, /本サイト運営者は一切の責任を負いません。/);
+assert.match(aboutHtml, /転載、引用、保存、加工、再利用、二次利用、商用利用/);
+assert.match(aboutHtml, /運営者への許可や連絡は必要ありません。/);
+assert.match(aboutHtml, /各メーカーとは関係のない独立した非公式の年代判別ツールです。/);
+assert.doesNotMatch(aboutHtml, /リンクフリー/);
 
 console.log('decoder, compatibility, validation, and interface tests passed');
