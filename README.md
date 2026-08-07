@@ -19,3 +19,4 @@ npm run dev
 
 ## 公開
 GitHub Pagesで `main` ブランチの `/docs` を公開元にします。詳しくは `project-docs/PUBLISH_GITHUB_PAGES.md` を参照してください。
+This repository uses automated validation before deployment.
