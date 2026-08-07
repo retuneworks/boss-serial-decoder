@@ -20,3 +20,23 @@
 ```text
 私が添付するX、Reverb、InstagramのURLやボタン素材に差し替えてください。RETUNE WORKSの宣伝感を強くせず、フッター内に控えめに配置してください。変更後にnpm testを実行してください。
 ```
+
+## 通常更新（変更 → テスト → PR作成まで）
+```text
+このBOSS年代判別サイトを更新してください。最初にAGENTS.md、README.md、CODEX_PROMPTS.md、project-docs/DECODER_SPEC.md、package.json、tests/、scripts/を確認し、既存仕様とテストを理解してください。
+
+更新内容：
+［ここに変更したい内容を日本語で入力］
+
+mainへ直接コミットまたはPushせず、agent/から始まる作業ブランチを使用してください。変更後はnpm testとnpm run generate-pagesを実行し、生成されたdocs/に変更がある場合は必要な生成物もコミットしてください。すべて成功したらGitHubへPushし、mainをベースとするPull Requestを作成してください。テスト失敗時はマージやDeployを行わず、原因を報告してください。今回はPull Request作成までで止め、mainへのマージとDeployは行わないでください。
+```
+
+## Deployまで（変更 → テスト → PR作成 → マージ → 公開確認）
+```text
+このBOSS年代判別サイトを更新し、問題がなければDeployまで進めてください。最初にAGENTS.md、README.md、CODEX_PROMPTS.md、project-docs/DECODER_SPEC.md、package.json、tests/、scripts/を確認し、既存仕様とテストを理解してください。
+
+更新内容：
+［ここに変更したい内容を日本語で入力］
+
+mainへ直接コミットまたはPushせず、agent/から始まる作業ブランチを使用してください。変更後はnpm testとnpm run generate-pagesを実行し、生成されたdocs/に変更がある場合は必要な生成物もコミットしてください。すべて成功したらGitHubへPushし、mainをベースとするPull Requestを作成してください。GitHub Actionsが成功したことを確認し、問題がなければmainへマージしてください。マージ後はGitHub Pagesの公開完了と公開結果を確認してください。テスト、GitHub Actions、または公開確認で問題が発生した場合は、無理にマージやDeployを進めず原因を報告してください。
+```
