@@ -1,0 +1,1 @@
+{"name":"boss-serial-decoder","version":"0.3.0","private":true,"type":"module","description":"Unofficial BOSS compact pedal manufacture month and sales-period compatibility checker","scripts":{"dev":"node scripts/serve.mjs","test":"node tests/decoder.test.mjs","import-data":"python scripts/import_xlsx.py","generate-pages":"node scripts/generate-pages.mjs"}}

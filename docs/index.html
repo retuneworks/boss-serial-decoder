@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BOSSコンパクトエフェクター 製造年月検索｜非公式</title>
+  <meta name="description" content="BOSSコンパクトエフェクターの型式とシリアルナンバーから製造年月を推定する無料の非公式日本語ツールです。">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#f3f0e9">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#decoder" data-i18n="skip.form">検索フォームへ移動</a>
+
+  <header class="site-header">
+    <a class="site-title" href="./">
+      <span class="site-title-main">Compact Pedal Date Finder</span>
+      <span class="site-title-note">UNOFFICIAL TOOL</span>
+    </a>
+    <div class="header-actions">
+      <nav><a href="./about.html" data-i18n="nav.about">このサイトについて</a></nav>
+      <button class="language-toggle" id="language-toggle" type="button">English</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="tool-layout">
+      <section class="hero">
+        <p class="eyebrow" data-i18n="hero.kicker">無料・登録不要・非公式</p>
+        <h1>
+          <span data-i18n="hero.titleLead">BOSSコンパクトエフェクターの</span>
+          <strong data-i18n="hero.titleMain">製造年月を、すばやく検索。</strong>
+        </h1>
+        <p class="hero-copy" data-i18n="hero.copy">型式とシリアルナンバーの2項目から、推定製造年月と販売期間との整合性を確認できます。</p>
+        <ul class="hero-points" aria-label="Features">
+          <li data-i18n="hero.pointFast">ブラウザ内ですぐに判定</li>
+          <li data-i18n="hero.pointPrivate">入力内容は外部送信しません</li>
+        </ul>
+      </section>
+
+      <section class="decoder-card" id="decoder">
+        <div class="card-heading">
+          <p class="eyebrow" data-i18n="form.kicker">SERIAL DATE SEARCH</p>
+          <h2 data-i18n="form.title">製造年月を調べる</h2>
+        </div>
+        <form id="decoder-form" novalidate>
+          <label class="field required">
+            <span data-i18n="form.model">型式</span>
+            <input id="model" name="model" list="model-list" placeholder="例：DS-1 / BF-2 / SD-1" data-i18n-placeholder="form.modelPlaceholder" autocomplete="off" required>
+            <datalist id="model-list"></datalist>
+          </label>
+          <label class="field required">
+            <span data-i18n="form.serial">シリアルナンバー</span>
+            <input id="serial" name="serial" placeholder="例：7100 / 141100 / JG83100" data-i18n-placeholder="form.serialPlaceholder" autocomplete="off" spellcheck="false" required>
+          </label>
+          <p id="form-message" class="form-message" role="alert"></p>
+          <div class="form-actions">
+            <button type="submit" class="primary-button" data-i18n="form.submit">製造年月を検索</button>
+            <button type="button" class="secondary-button" id="reset-button" data-i18n="form.reset">リセット</button>
+          </div>
+        </form>
+        <section id="result-panel" class="result-card" aria-live="polite" hidden></section>
+        <p class="disclaimer" data-i18n="disclaimer.main">本サイトはRoland／BOSS公式ではありません。表示される製造年月は、公開情報と実機調査をもとにした非公式の推定です。特定のシリアルが実際に発行されたこと、製品の真贋、シリアルラベルの交換の有無を保証するものではありません。</p>
+      </section>
+    </div>
+
+    <section class="simple-info" aria-label="Site features">
+      <div><strong data-i18n="info.inputsTitle">入力は2項目だけ</strong><span data-i18n="info.inputsCopy">型式とシリアルナンバー</span></div>
+      <div><strong data-i18n="info.freeTitle">無料・登録不要</strong><span data-i18n="info.freeCopy">ブラウザ内で処理します</span></div>
+      <div><strong data-i18n="info.periodTitle">販売期間も照合</strong><span data-i18n="info.periodCopy">矛盾や入力エラーを区別</span></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-heading">
+        <p class="creator" data-i18n="footer.creator">制作・運営：RETUNE WORKS</p>
+        <p class="footer-link-label" data-i18n="footer.links">RETUNE WORKSをフォロー・ショップを見る</p>
+      </div>
+      <nav class="social-links" aria-label="RETUNE WORKS links">
+        <a class="social-button social-x" href="https://x.com/RETUNEWORKS" target="_blank" rel="noopener noreferrer"><span class="social-mark">X</span><span data-i18n="social.x">Xで見る</span></a>
+        <a class="reverb-button" href="https://reverb.com/shop/retunes-shop" target="_blank" rel="noopener noreferrer" aria-label="RETUNE WORKS shop on Reverb"><img src="https://res.cloudinary.com/reverb-cms/image/upload/backfilled/curation/Shop-Button-215x65-Grey_etuqlv.png" width="215" height="65" loading="lazy" referrerpolicy="no-referrer" alt="Shop My Store on Reverb"></a>
+        <a class="social-button social-instagram" href="https://www.instagram.com/retuneworks/" target="_blank" rel="noopener noreferrer"><span class="social-mark">◎</span><span data-i18n="social.instagram">Instagramで見る</span></a>
+      </nav>
+      <p class="trademark" data-i18n="footer.trademark">BOSSおよびRolandは各権利者の商標です。本サイトはRoland Corporationの公式サイトではなく、提携・承認を受けたものではありません。</p>
+    </div>
+  </footer>
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>

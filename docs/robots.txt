@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://retuneworks.github.io/boss-serial-decoder/sitemap.xml
