@@ -28,17 +28,23 @@ Free Japanese-first static web tool that estimates a BOSS compact pedal manufact
 7. Test: 7100→1978-06, 141100→1982-01, 875683→1988-02, JG83100→1994-11, A0A0000→2010-11, A0P0000→2022-07.
 
 ## Development and release workflow
-- For normal updates, do not commit or push directly to main.
-- Use a working branch whose name starts with `agent/`.
-- Review the existing specification and tests before making changes.
-- Always run `npm test` after making changes.
-- Always run `npm run generate-pages` after making changes.
-- If generated files under `docs/` change, commit the required generated files as well.
-- Do not merge a Pull Request while tests are failing.
-- Do not deploy while tests are failing.
-- Do not break existing BOSS manufacture-date results.
-- Do not break sales-period and serial compatibility checks.
-- Apply changes to main through a Pull Request.
-- Even when instructed to proceed through deployment, merge into main only after confirming that tests pass.
-- After merging into main, confirm the published GitHub Pages result.
-- If a problem occurs, do not force a release; report the cause.
+Follow this sequence for the official deployment workflow:
+
+1. Update the local `main` branch to the latest `origin/main`.
+2. Do not commit or push directly to `main`; create a working branch whose name starts with `agent/`.
+3. Review the existing specification and tests, then make the requested changes without breaking existing BOSS manufacture-date results or sales-period and serial compatibility checks.
+4. Run `npm test`.
+5. Run `npm run generate-pages`.
+6. Confirm that `docs/` has no unintended differences. If required generated files changed intentionally, commit those generated files as well.
+7. Commit the intended files and push the working branch to GitHub.
+8. Create a Pull Request targeting `main`.
+9. Confirm that the Pull Request's GitHub Actions `validate` check succeeds.
+10. Only after `validate` succeeds, merge with the normal GitHub CLI command `gh pr merge --merge`.
+11. Never use `--admin` or any other method to bypass `main` branch protection rules.
+12. Confirm that the `Validate` workflow triggered on `main` succeeds.
+13. Confirm that the GitHub Pages deployment succeeds.
+14. Confirm that the published site responds with HTTP 200.
+15. After all checks succeed, delete the unnecessary `agent/` working branch locally and remotely.
+16. If any problem occurs, stop without forcing a merge or deployment and report the cause.
+
+GitHub's Auto Merge feature is optional and is not required by this workflow.
