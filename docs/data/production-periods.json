@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "title": "BOSSコンパクトエフェクター 製造可能期間判定データ",
+    "updatedAt": "2026-08-07",
+    "notice": "シリアルから推定した製造年月の判定用データ。販売期間とは分離して扱う。",
+    "sources": [
+      { "id": "boss-40th", "name": "BOSS 40th Anniversary Compact Pedals", "url": "https://www.boss.info/jp/promos/40th_anniversary_compact_pedals/" },
+      { "id": "boss-repair", "name": "BOSS 修理サービス 機種別経過年数＆修理対応期間一覧", "url": "https://www.boss.info/jp/support/service_repair/1708080000/" },
+      { "id": "boss-mania", "name": "BOSS MANIA等の既存販売期間資料" }
+    ]
+  },
+  "models": [
+    {
+      "model": "CE-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1979-10", "end": "1982-12" },
+      "uncertainProductionPeriod": { "start": "1983-01", "end": "1992-12" },
+      "maximumPossibleProductionPeriod": { "start": "1979-10", "end": "1992-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "既存販売期間資料", "start": "1979-10", "end": "1982-11", "precision": "month" },
+        { "source": "BOSS 40th", "start": "1979-01", "end": "1991-12", "precision": "year" },
+        { "source": "BOSS 修理サービス", "start": "1979-01", "end": "1992-12", "precision": "year" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "一部資料の販売期間から外れる場合がありますが、BOSS公式資料には1990年代初頭までの記録もあります。追加情報による確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "CS-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1981-12", "end": "1986-06" },
+      "uncertainProductionPeriod": { "start": "1986-07", "end": "1989-12" },
+      "maximumPossibleProductionPeriod": { "start": "1981-12", "end": "1989-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "既存販売期間資料", "start": "1981-12", "end": "1986-06", "precision": "month" },
+        { "source": "BOSS 40th", "start": "1981-01", "end": "1988-12", "precision": "year" },
+        { "source": "BOSS 修理サービス", "start": "1981-01", "end": "1989-12", "precision": "year" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "資料によってCS-2の製造・販売終了時期に差があります。後期個体は追加情報による確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "NF-1",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1979-02", "end": "1982-12" },
+      "uncertainProductionPeriod": { "start": "1983-01", "end": "1988-12" },
+      "maximumPossibleProductionPeriod": { "start": "1979-02", "end": "1988-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 40th", "start": "1979-01", "end": "1982-12", "precision": "year" },
+        { "source": "BOSS 修理サービス", "start": "1979-01", "end": "1988-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1979-02", "end": "1988-05", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "NF-1はBOSS公式資料間でも終了時期の記録に差があります。1980年代中盤以降の個体は追加確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "VB-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1982-04", "end": "1984-12" },
+      "uncertainProductionPeriod": { "start": "1985-01", "end": "1986-12" },
+      "maximumPossibleProductionPeriod": { "start": "1982-04", "end": "1986-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 40th", "start": "1982-01", "end": "1984-12", "precision": "year" },
+        { "source": "BOSS 修理サービス", "start": "1982-01", "end": "1986-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1982-04", "end": "1986-04", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "VB-2はBOSS公式資料でも製造終了時期に差があります。1985～1986年頃と推定される個体は追加確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "OC-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1982-04", "end": "2003-12" },
+      "uncertainProductionPeriod": { "start": "2004-01", "end": "2005-12" },
+      "maximumPossibleProductionPeriod": { "start": "1982-04", "end": "2005-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 40th", "start": "1982-01", "end": "2003-12", "precision": "year" },
+        { "source": "BOSS 修理サービス", "start": "1982-01", "end": "2005-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1982-04", "end": "2005-06", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "OC-2は資料によって製造終了時期が2003年または2005年とされています。最終期個体は追加確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "CE-3",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1982-10", "end": "1989-12" },
+      "uncertainProductionPeriod": { "start": "1990-01", "end": "1992-12" },
+      "maximumPossibleProductionPeriod": { "start": "1982-10", "end": "1992-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 40th", "start": "1982-01", "end": "1989-12", "precision": "year" },
+        { "source": "BOSS 修理サービス", "start": "1982-01", "end": "1992-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1982-10", "end": "1992-02", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "CE-3は資料によって終了時期が1989年または1992年となっています。最終期個体は追加確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "DM-3",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1984-05", "end": "1986-12" },
+      "uncertainProductionPeriod": { "start": "1987-01", "end": "1988-12" },
+      "maximumPossibleProductionPeriod": { "start": "1984-05", "end": "1988-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 修理サービス", "start": "1984-01", "end": "1986-12", "precision": "year" },
+        { "source": "BOSS 40th", "start": "1984-01", "end": "1987-12", "precision": "year" },
+        { "source": "BOSS MANIA等", "start": "1984-01", "end": "1988-12", "precision": "year" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "DM-3は資料によって製造・販売終了時期に比較的大きな差があります。1987～1988年頃と推定される個体は追加確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "HF-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1985-10", "end": "1993-12" },
+      "uncertainProductionPeriod": { "start": "1994-01", "end": "1995-12" },
+      "maximumPossibleProductionPeriod": { "start": "1985-10", "end": "1995-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 修理サービス", "start": "1985-01", "end": "1993-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1985-10", "end": "1995-02", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "HF-2は販売記録とBOSS公式の製造完了時期に差があります。1994～1995年頃と推定される個体は追加確認を推奨します。",
+      "sources": ["boss-repair", "boss-mania"]
+    },
+    {
+      "model": "PN-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1990-05", "end": "1993-12" },
+      "uncertainProductionPeriod": { "start": "1994-01", "end": "1995-12" },
+      "maximumPossibleProductionPeriod": { "start": "1990-05", "end": "1995-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 修理サービス", "start": "1990-01", "end": "1993-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1990-05", "end": "1995-03", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "PN-2はBOSS公式の製造完了時期と販売期間資料に差があります。シリアル判定では市場での販売期間ではなく製造時期を優先します。",
+      "sources": ["boss-repair", "boss-mania"]
+    },
+    {
+      "model": "PW-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1996-08", "end": "1997-12" },
+      "uncertainProductionPeriod": { "start": "1998-01", "end": "1998-12" },
+      "maximumPossibleProductionPeriod": { "start": "1996-08", "end": "1998-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 修理サービス", "start": "1996-01", "end": "1998-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1996-08", "end": "2000-10", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "PW-2は販売終了時期と製造完了時期が異なる可能性があります。シリアル判定では市場での販売期間ではなく、実際の製造可能期間を優先しています。",
+      "sources": ["boss-repair", "boss-mania"]
+    },
+    {
+      "model": "PS-2",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1987-10", "end": "1993-12" },
+      "uncertainProductionPeriod": { "start": "1994-01", "end": "1994-12" },
+      "maximumPossibleProductionPeriod": { "start": "1987-10", "end": "1994-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 修理サービス", "start": "1987-01", "end": "1993-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1987-10", "end": "1994-03", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "PS-2は資料によって終了時期に約1年の差があります。1994年頃と推定される個体は追加確認を推奨します。",
+      "sources": ["boss-repair", "boss-mania"]
+    },
+    {
+      "model": "DC-3",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1988-03", "end": "1992-12" },
+      "uncertainProductionPeriod": { "start": "1993-01", "end": "1993-12" },
+      "maximumPossibleProductionPeriod": { "start": "1988-03", "end": "1993-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 修理サービス", "start": "1988-01", "end": "1992-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1988-03", "end": "1993-08", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "DC-3は資料によって終了時期に差があります。1993年頃と推定される個体は追加確認を推奨します。",
+      "sources": ["boss-repair", "boss-mania"]
+    },
+    {
+      "model": "OD-1",
+      "hasSourceDiscrepancy": true,
+      "confirmedProductionPeriod": { "start": "1977-11", "end": "1985-12" },
+      "uncertainProductionPeriod": { "start": "1986-01", "end": "1988-12" },
+      "maximumPossibleProductionPeriod": { "start": "1977-11", "end": "1988-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [
+        { "source": "BOSS 修理サービス", "start": "1977-01", "end": "1985-12", "precision": "year" },
+        { "source": "BOSS 40th", "start": "1977-01", "end": "1988-12", "precision": "year" },
+        { "source": "既存販売期間資料", "start": "1977-11", "end": "1985-07", "precision": "month" }
+      ],
+      "discrepancyNote": "資料間で製造期間に差異があります。",
+      "discrepancyDetail": "OD-1はBOSS公式資料間でも終了時期に差があります。後期年代と推定される個体は追加確認を推奨します。",
+      "sources": ["boss-40th", "boss-repair", "boss-mania"]
+    },
+    {
+      "model": "DD-7",
+      "hasSourceDiscrepancy": false,
+      "confirmedProductionPeriod": { "start": "2008-04", "end": "2019-12" },
+      "maximumPossibleProductionPeriod": { "start": "2008-04", "end": "2019-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [{ "source": "BOSS 修理サービス", "start": "2008-01", "end": "2019-12", "precision": "year" }],
+      "sources": ["boss-repair"]
+    },
+    {
+      "model": "FRV-1",
+      "hasSourceDiscrepancy": false,
+      "confirmedProductionPeriod": { "start": "2009-07", "end": "2017-12" },
+      "maximumPossibleProductionPeriod": { "start": "2009-07", "end": "2017-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [{ "source": "BOSS 修理サービス", "start": "2009-01", "end": "2017-12", "precision": "year" }],
+      "sources": ["boss-repair"]
+    },
+    {
+      "model": "BC-2",
+      "hasSourceDiscrepancy": false,
+      "confirmedProductionPeriod": { "start": "2011-09", "end": "2014-12" },
+      "maximumPossibleProductionPeriod": { "start": "2011-09", "end": "2014-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [{ "source": "BOSS 修理サービス", "start": "2011-01", "end": "2014-12", "precision": "year" }],
+      "sources": ["boss-repair"]
+    },
+    {
+      "model": "DA-2",
+      "hasSourceDiscrepancy": false,
+      "confirmedProductionPeriod": { "start": "2013-02", "end": "2014-12" },
+      "maximumPossibleProductionPeriod": { "start": "2013-02", "end": "2014-12" },
+      "productionEndPrecision": "year",
+      "referencePeriods": [{ "source": "BOSS公式資料", "start": "2013-01", "end": "2014-12", "precision": "year" }],
+      "sources": ["boss-repair"]
+    }
+  ]
+}

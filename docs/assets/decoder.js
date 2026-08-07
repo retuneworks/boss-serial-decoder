@@ -47,6 +47,31 @@ function monthString(date) {
   return date ? `${date.year}-${String(date.month).padStart(2, '0')}` : null;
 }
 
+function periodContains(date, period) {
+  if (!period?.start) return false;
+  return betweenMonth(date, period.start, period.end || null);
+}
+
+function productionPolicy(records = []) {
+  return records.find((record) => record.productionCompatibility)?.productionCompatibility || null;
+}
+
+export function productionPeriods(records = []) {
+  const policy = productionPolicy(records);
+  if (!policy) return null;
+  return {
+    hasSourceDiscrepancy: Boolean(policy.hasSourceDiscrepancy),
+    confirmed: policy.confirmedProductionPeriod || null,
+    uncertain: policy.uncertainProductionPeriod || null,
+    maximum: policy.maximumPossibleProductionPeriod || null,
+    productionEndPrecision: policy.productionEndPrecision || null,
+    referencePeriods: policy.referencePeriods || [],
+    discrepancyNote: policy.discrepancyNote || null,
+    discrepancyDetail: policy.discrepancyDetail || null,
+    sources: policy.sources || []
+  };
+}
+
 function extractYearMonths(value = '') {
   const text = String(value).normalize('NFKC');
   const found = [];
@@ -97,13 +122,23 @@ export function modelWindows(records = []) {
 }
 
 function candidateFitsModel(date, records) {
+  const periods = productionPeriods(records);
+  if (periods) {
+    return periods.maximum
+      ? periodContains(date, periods.maximum)
+      : periodContains(date, periods.confirmed) || periodContains(date, periods.uncertain);
+  }
   const windows = modelWindows(records);
   if (!windows.length) return null;
   return windows.some(({ start, end }) => betweenMonth(date, start, end));
 }
 
 function candidateDistanceFromModel(date, records) {
-  const windows = modelWindows(records);
+  const periods = productionPeriods(records);
+  const windows = periods
+    ? [periods.maximum || periods.confirmed, periods.maximum ? null : periods.uncertain].filter(Boolean)
+      .map((period) => ({ start: period.start, end: period.end }))
+    : modelWindows(records);
   if (!windows.length) return 0;
   const value = monthIndex(date.year, date.month);
   let best = Number.POSITIVE_INFINITY;
@@ -117,6 +152,18 @@ function candidateDistanceFromModel(date, records) {
     best = Math.min(best, Math.abs(value - startValue), Math.abs(value - endValue));
   }
   return best;
+}
+
+export function classifyProductionCompatibility(date, records = []) {
+  const periods = productionPeriods(records);
+  if (periods) {
+    if (periodContains(date, periods.confirmed)) return 'consistent';
+    if (periodContains(date, periods.uncertain)) return 'needs-review';
+    if (periodContains(date, periods.maximum)) return 'needs-review';
+    return 'inconsistent';
+  }
+  const fits = candidateFitsModel(date, records);
+  return fits === null ? 'unknown' : fits ? 'consistent' : 'inconsistent';
 }
 
 function decodeFourDigit(serial) {
@@ -196,7 +243,14 @@ export function estimateManufacture({ serial, modelRecords = [], now = new Date(
   }
 
   const date = chooseCandidate(nonFuture, modelRecords);
-  const fits = candidateFitsModel(date, modelRecords);
-  const compatibility = fits === null ? 'unknown' : fits ? 'consistent' : 'inconsistent';
-  return { serial: decoded.serial, format: decoded.format, date, compatibility, error: null };
+  const compatibility = classifyProductionCompatibility(date, modelRecords);
+  return {
+    serial: decoded.serial,
+    format: decoded.format,
+    date,
+    compatibility,
+    periods: productionPeriods(modelRecords),
+    salesPeriods: modelWindows(modelRecords),
+    error: null
+  };
 }

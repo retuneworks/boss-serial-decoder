@@ -58,19 +58,62 @@ function renderError(titleJa, titleEn, messageJa, messageEn, shouldScroll = true
 function compatibilityText(status) {
   if (status === 'consistent') return {
     className: 'result-consistent',
-    label: localized('販売期間との整合性：あり', 'Sales-period compatibility: MATCH'),
-    note: localized('推定製造年月は、登録されている販売期間内です。', 'The estimated manufacture date falls within the registered sales period.')
+    label: localized('整合性判定：✅ 整合性あり', 'Compatibility: MATCH'),
+    note: localized('推定製造年月は、製造されていた可能性が十分に高い期間内です。', 'The estimated manufacture date falls within the well-supported production period.')
+  };
+  if (status === 'needs-review') return {
+    className: 'result-needs-review',
+    label: localized('整合性判定：⚠️ 要追加確認', 'Compatibility: ADDITIONAL CHECK RECOMMENDED'),
+    note: localized('資料によって製造・販売終了時期に差があります。このシリアルの年代は資料によって評価が分かれるため、追加情報による確認を推奨します。', 'Sources differ on the production or sales end date, so this serial-era estimate warrants an additional check.')
   };
   if (status === 'inconsistent') return {
     className: 'result-inconsistent',
-    label: localized('販売期間との整合性：なし', 'Sales-period compatibility: CONFLICT'),
-    note: localized('販売期間とシリアルが矛盾しています。型式・シリアルの誤入力、登録データの不足、特殊な流通個体、シリアルラベルの交換などの可能性があります。', 'The sales period and serial number conflict. Possible causes include an input error, incomplete registered data, unusual distribution, or a replaced serial label.')
+    label: localized('整合性判定：❌ 整合性なし', 'Compatibility: CONFLICT'),
+    note: localized('製造可能期間とシリアルが矛盾しています。型式・シリアルの誤入力、登録データの不足、特殊な流通個体、シリアルラベルの交換などの可能性があります。', 'The supported production period and serial number conflict. Possible causes include an input error, incomplete data, unusual distribution, or a replaced serial label.')
   };
   return {
     className: 'result-unknown',
-    label: localized('販売期間との整合性：確認不能', 'Sales-period compatibility: UNAVAILABLE'),
-    note: localized('販売期間データが不足しているため、整合性を確認できません。', 'Compatibility cannot be checked because sales-period data is incomplete.')
+    label: localized('整合性判定：確認不能', 'Compatibility: UNAVAILABLE'),
+    note: localized('製造可能期間データが不足しているため、整合性を確認できません。', 'Compatibility cannot be checked because production-period data is incomplete.')
   };
+}
+
+function displayMonth(value, precision = 'month') {
+  if (!value) return localized('現行／終了時期未確認', 'Current / end date unconfirmed');
+  const [year, month] = value.split('-');
+  if (getLanguage() === 'en') return precision === 'year' ? year : `${year}-${month}`;
+  return precision === 'year' ? `${year}年` : `${year}年${Number(month)}月`;
+}
+
+function displayPeriod(period, endPrecision = 'month') {
+  if (!period?.start) return localized('未登録', 'Not registered');
+  return `${displayMonth(period.start)}～${displayMonth(period.end, endPrecision)}`;
+}
+
+function periodDetails(result) {
+  const sales = result.salesPeriods?.map((period) => displayPeriod(period)).join(' / ') || localized('未登録', 'Not registered');
+  const maximum = result.periods?.maximum || result.periods?.confirmed;
+  const production = maximum
+    ? displayPeriod(maximum, result.periods.productionEndPrecision || 'month')
+    : sales;
+  return `
+    <dl class="period-summary">
+      <div><dt>${escapeHtml(localized('販売期間（参考）', 'Sales period (reference)'))}</dt><dd>${escapeHtml(sales)}</dd></div>
+      <div><dt>${escapeHtml(localized('製造可能期間／判定基準', 'Possible production period'))}</dt><dd>${escapeHtml(production)}</dd></div>
+    </dl>`;
+}
+
+function discrepancyDetails(result) {
+  if (!result.periods?.hasSourceDiscrepancy) return '';
+  const estimated = getLanguage() === 'en'
+    ? `${result.date.year}-${String(result.date.month).padStart(2, '0')}`
+    : `${formatYearMonth(result.date)}頃`;
+  const heading = localized(`⚠️ ${result.periods.discrepancyNote}`, `⚠️ Source records differ on the production period.`);
+  const detail = localized(
+    `シリアルからは${estimated}と推定されます。${result.periods.discrepancyDetail || '資料によって記録が異なるため、年代判定には追加確認が必要な場合があります。'}`,
+    `The serial suggests approximately ${estimated}. Source records differ, so an additional check may be needed.`
+  );
+  return `<aside class="source-discrepancy"><p class="source-discrepancy-title">${escapeHtml(heading)}</p><p>${escapeHtml(detail)}</p></aside>`;
 }
 
 function renderResult(result, shouldScroll = true) {
@@ -82,10 +125,12 @@ function renderResult(result, shouldScroll = true) {
   panel.innerHTML = `
     <p class="result-label">${escapeHtml(localized('推定製造年月', 'Estimated manufacture date'))}</p>
     <p class="result-date">${escapeHtml(getLanguage() === 'en' ? `${result.date.year}-${String(result.date.month).padStart(2, '0')}` : formatYearMonth(result.date))}</p>
+    ${periodDetails(result)}
     <div class="compatibility-status">
       <p class="compatibility-label">${escapeHtml(compatibility.label)}</p>
       <p class="compatibility-note">${escapeHtml(compatibility.note)}</p>
-    </div>`;
+    </div>
+    ${discrepancyDetails(result)}`;
   if (shouldScroll) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
@@ -159,10 +204,17 @@ function fillFromUrl() {
 
 async function init() {
   try {
-    const response = await fetch('./data/models.json');
-    if (!response.ok) throw new Error('Failed to load model data');
-    const payload = await response.json();
-    state.records = payload.models || [];
+    const [modelsResponse, productionResponse] = await Promise.all([
+      fetch('./data/models.json'),
+      fetch('./data/production-periods.json')
+    ]);
+    if (!modelsResponse.ok || !productionResponse.ok) throw new Error('Failed to load model data');
+    const [payload, productionPayload] = await Promise.all([modelsResponse.json(), productionResponse.json()]);
+    const productionByModel = new Map((productionPayload.models || []).map((item) => [item.model, item]));
+    state.records = (payload.models || []).map((record) => ({
+      ...record,
+      productionCompatibility: productionByModel.get(record.model) || null
+    }));
     $('#model-list').innerHTML = uniqueModels(state.records)
       .map((item) => `<option value="${escapeHtml(item.model)}">${escapeHtml(item.name)}</option>`).join('');
     $('#decoder-form').addEventListener('submit', estimateFromForm);
