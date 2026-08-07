@@ -26,3 +26,19 @@ Free Japanese-first static web tool that estimates a BOSS compact pedal manufact
 5. Confirm a valid-format conflicting example shows date plus warning: OD-1 / JG83100 → 1994年11月 / 整合性なし.
 6. Confirm invalid model, invalid serial, reserved O, and future code produce input errors rather than compatibility warnings.
 7. Test: 7100→1978-06, 141100→1982-01, 875683→1988-02, JG83100→1994-11, A0A0000→2010-11, A0P0000→2022-07.
+
+## Development and release workflow
+- For normal updates, do not commit or push directly to main.
+- Use a working branch whose name starts with `agent/`.
+- Review the existing specification and tests before making changes.
+- Always run `npm test` after making changes.
+- Always run `npm run generate-pages` after making changes.
+- If generated files under `docs/` change, commit the required generated files as well.
+- Do not merge a Pull Request while tests are failing.
+- Do not deploy while tests are failing.
+- Do not break existing BOSS manufacture-date results.
+- Do not break sales-period and serial compatibility checks.
+- Apply changes to main through a Pull Request.
+- Even when instructed to proceed through deployment, merge into main only after confirming that tests pass.
+- After merging into main, confirm the published GitHub Pages result.
+- If a problem occurs, do not force a release; report the cause.
