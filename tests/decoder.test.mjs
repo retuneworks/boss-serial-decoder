@@ -100,6 +100,7 @@ assert.ok(productionPayload.models.filter((item) => item.hasSourceDiscrepancy)
   .every((item) => item.discrepancyNote === '資料間で製造期間に差異があります。'));
 
 const html = await fs.readFile(new URL('../docs/index.html', import.meta.url), 'utf8');
+const englishHtml = await fs.readFile(new URL('../docs/en/index.html', import.meta.url), 'utf8');
 const app = await fs.readFile(new URL('../docs/assets/app.js', import.meta.url), 'utf8');
 assert.match(html, /id="model"/);
 assert.match(html, /id="serial"/);
@@ -116,12 +117,60 @@ assert.match(html, /制作・運営：RETUNE WORKS/);
 assert.match(html, /判定結果は参考情報であり、正確性、完全性、最新性を保証するものではありません。/);
 assert.match(html, /購入・販売・査定・鑑定・修理などの最終判断は、利用者ご自身の責任で行ってください。/);
 
+assert.match(html, /<title>BOSSエフェクター シリアル年代判別・製造年検索｜RETUNE WORKS<\/title>/);
+assert.match(html, /<meta name="description" content="BOSSコンパクトエフェクターの型番とシリアルナンバーから製造年月を推定。/);
+assert.match(html, /<h1>BOSSエフェクターのシリアルナンバーから製造年月を年代判別<\/h1>/);
+assert.match(html, /<link rel="canonical" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/">/);
+assert.match(html, /hreflang="ja" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/"/);
+assert.match(html, /hreflang="en" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/en\/"/);
+assert.match(englishHtml, /<html lang="en">/);
+assert.match(englishHtml, /<title>BOSS Pedal Serial Number Decoder &amp; Date Lookup \| RETUNE WORKS<\/title>/);
+assert.match(englishHtml, /Free BOSS pedal serial number decoder\./);
+assert.match(englishHtml, /<h1>BOSS Pedal Serial Number Decoder<\/h1>/);
+assert.match(englishHtml, /<link rel="canonical" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/en\/">/);
+assert.match(englishHtml, /hreflang="ja" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/"/);
+assert.match(englishHtml, /hreflang="en" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/en\/"/);
+assert.match(englishHtml, /href="\.\.\/" lang="ja" hreflang="ja"/);
+assert.match(html, /href="\.\/en\/" lang="en" hreflang="en"/);
+
+for (const [label, page] of [['Japanese home', html], ['English home', englishHtml]]) {
+  const inputs = [...page.matchAll(/<input\b[^>]*\bid="([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(inputs, ['model', 'serial'], `${label} only has model and serial inputs`);
+  assert.match(page, /property="og:title"/);
+  assert.match(page, /property="og:description"/);
+  assert.match(page, /property="og:type"/);
+  assert.match(page, /property="og:url"/);
+  assert.match(page, /name="twitter:card"/);
+  const jsonLd = [...page.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  assert.ok(jsonLd.length > 0, `${label} has JSON-LD`);
+  for (const block of jsonLd) assert.doesNotThrow(() => JSON.parse(block[1]), `${label} JSON-LD is valid JSON`);
+  const internalHrefs = [...page.matchAll(/href="([^"]+)"/g)].map((match) => match[1])
+    .filter((href) => !href.startsWith('http') && !href.startsWith('#'));
+  assert.ok(internalHrefs.every((href) => href.startsWith('./') || href.startsWith('../')), `${label} internal links are subpath-safe`);
+}
+
 const aboutHtml = await fs.readFile(new URL('../docs/about.html', import.meta.url), 'utf8');
+const englishAboutHtml = await fs.readFile(new URL('../docs/en/about.html', import.meta.url), 'utf8');
 assert.match(aboutHtml, /シリアルラベルの交換・貼り替え、修理歴、部品交換、仕様変更/);
 assert.match(aboutHtml, /本サイト運営者は一切の責任を負いません。/);
 assert.match(aboutHtml, /転載、引用、保存、加工、再利用、二次利用、商用利用/);
 assert.match(aboutHtml, /運営者への許可や連絡は必要ありません。/);
 assert.match(aboutHtml, /各メーカーとは関係のない独立した非公式の年代判別ツールです。/);
 assert.doesNotMatch(aboutHtml, /リンクフリー/);
+assert.match(aboutHtml, /単純なシリアル変換だけではなく/);
+assert.match(englishAboutHtml, /does not stop at a simple serial conversion/);
+assert.match(aboutHtml, /rel="canonical" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/about\.html"/);
+assert.match(englishAboutHtml, /rel="canonical" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/en\/about\.html"/);
 
-console.log('decoder, compatibility, validation, and interface tests passed');
+const sitemap = await fs.readFile(new URL('../docs/sitemap.xml', import.meta.url), 'utf8');
+const robots = await fs.readFile(new URL('../docs/robots.txt', import.meta.url), 'utf8');
+for (const url of [
+  'https://retuneworks.github.io/boss-serial-decoder/',
+  'https://retuneworks.github.io/boss-serial-decoder/about.html',
+  'https://retuneworks.github.io/boss-serial-decoder/en/',
+  'https://retuneworks.github.io/boss-serial-decoder/en/about.html'
+]) assert.match(sitemap, new RegExp(`<loc>${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</loc>`));
+assert.match(robots, /Allow: \/\s/);
+assert.match(robots, /Sitemap: https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/sitemap\.xml/);
+
+console.log('decoder, compatibility, validation, interface, and SEO tests passed');
