@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BOSS Pedal Serial Number Decoder &amp; Date Lookup | RETUNE WORKS</title>
+  <meta name="description" content="Free BOSS pedal serial number decoder. Enter a model and serial number to estimate the manufacture month and year and check whether the date matches the model's documented production period.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#f3f0e9">
+  <link rel="canonical" href="https://retuneworks.github.io/boss-serial-decoder/en/">
+  <link rel="alternate" hreflang="ja" href="https://retuneworks.github.io/boss-serial-decoder/">
+  <link rel="alternate" hreflang="en" href="https://retuneworks.github.io/boss-serial-decoder/en/">
+  <meta property="og:title" content="BOSS Pedal Serial Number Decoder &amp; Date Lookup | RETUNE WORKS">
+  <meta property="og:description" content="Estimate a BOSS compact pedal's manufacture month and check it against the model's documented production period.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://retuneworks.github.io/boss-serial-decoder/en/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BOSS Pedal Serial Number Decoder &amp; Date Lookup">
+  <meta name="twitter:description" content="A free, unofficial BOSS pedal date decoder with a production-period compatibility check.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://retuneworks.github.io/boss-serial-decoder/#website",
+        "name": "BOSS Pedal Serial Number Decoder & Date Lookup",
+        "url": "https://retuneworks.github.io/boss-serial-decoder/en/",
+        "inLanguage": ["ja", "en"],
+        "publisher": { "@type": "Organization", "name": "RETUNE WORKS" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://retuneworks.github.io/boss-serial-decoder/en/#application",
+        "name": "BOSS Pedal Serial Number Decoder",
+        "url": "https://retuneworks.github.io/boss-serial-decoder/en/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "inLanguage": "en",
+        "provider": { "@type": "Organization", "name": "RETUNE WORKS" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#decoder">Skip to the search form</a>
+  <header class="site-header">
+    <a class="site-title" href="./"><span class="site-title-main">Compact Pedal Date Finder</span><span class="site-title-note">UNOFFICIAL TOOL</span></a>
+    <div class="header-actions">
+      <nav aria-label="Main navigation"><a href="./#guide">Dating guide</a><a href="./about.html">About this site</a></nav>
+      <a class="language-toggle" href="../" lang="ja" hreflang="ja">日本語</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="tool-layout">
+      <section class="hero">
+        <p class="eyebrow">FREE · NO SIGN-UP · UNOFFICIAL</p>
+        <h1>BOSS Pedal Serial Number Decoder</h1>
+        <p class="hero-copy">Enter a model and serial number to estimate the manufacture month and year, then check the date against the model's documented possible production period.</p>
+        <ul class="hero-points" aria-label="Features"><li>Instant, in-browser result</li><li>Your entries are not sent anywhere</li></ul>
+      </section>
+
+      <section class="decoder-card" id="decoder">
+        <div class="card-heading"><p class="eyebrow">SERIAL DATE SEARCH</p><h2>Look up a manufacture date</h2></div>
+        <form id="decoder-form" novalidate>
+          <label class="field required"><span>Model</span><input id="model" name="model" list="model-list" placeholder="e.g. DS-1 / BF-2 / SD-1" autocomplete="off" required><datalist id="model-list"></datalist></label>
+          <label class="field required"><span>Serial number</span><input id="serial" name="serial" placeholder="e.g. 7100 / 141100 / JG83100" autocomplete="off" spellcheck="false" required></label>
+          <p id="form-message" class="form-message" role="alert"></p>
+          <div class="form-actions"><button type="submit" class="primary-button">Check manufacture date</button><button type="button" class="secondary-button" id="reset-button">Reset</button></div>
+        </form>
+        <section id="result-panel" class="result-card" aria-live="polite" hidden></section>
+        <p class="disclaimer">This is an independent, unofficial tool with no affiliation to BOSS, Roland, or any other manufacturer. Results are estimates for reference only, with no guarantee of accuracy, completeness, or currency. You are responsible for final decisions involving purchases, sales, appraisals, authentication, or repairs.</p>
+      </section>
+    </div>
+
+    <section class="simple-info" aria-label="Site features">
+      <div><strong>Only two entries</strong><span>Model and serial number</span></div>
+      <div><strong>Free, no account</strong><span>Processed in your browser</span></div>
+      <div><strong>Production-period check</strong><span>Three outcomes stay distinct from input errors</span></div>
+    </section>
+
+    <article class="guide" id="guide">
+      <header class="guide-intro"><p class="eyebrow">BOSS PEDAL DATING GUIDE</p><h2>How BOSS serial number dating works</h2><p>BOSS compact pedal serial formats changed over time. This decoder does more than convert a code into a date: it also checks whether the selected model could reasonably have been in production at that time.</p></header>
+      <div class="guide-grid">
+        <section><h3>Where is the serial number?</h3><p>On many pedals, the serial appears on a label on the base or inside the battery compartment. Read the printing carefully and make sure the model and serial belong to the same pedal before entering them.</p></section>
+        <section><h3>Four- and five-digit batch codes</h3><p>Short batch codes appear on early pedals. The leading digits are used to estimate a manufacture month. If a code appears to have five digits, check for spacing, faint printing, or a transcription error.</p></section>
+        <section><h3>Six-digit serial numbers</h3><p>Six numeric digits are common on pedals from the 1980s. A date code within the number can be converted to a month and year, but the number alone cannot confirm that one specific serial was issued.</p></section>
+        <section><h3>Serial numbers with letters</h3><p>The decoder supports two letters followed by five digits and the later mixed letter-and-number format. The digit 0 and letter O are different; O is reserved in the manufacture-date code position and produces an input error.</p></section>
+        <section><h3>Why check the model and serial together?</h3><p>A serial can decode to a valid month that predates a model's introduction or falls after its production ended. Checking both fields helps identify a date that conflicts with the model's documented availability.</p></section>
+        <section><h3>Production-period compatibility</h3><p>The result is classified as a match, additional check recommended, or conflict using documented possible production periods. Unknown models, invalid formats, impossible dates, reserved O codes, and future dates remain input errors.</p></section>
+        <section><h3>When the serial and sales period conflict</h3><p>If the date falls outside even the broad possible production period, the result states that the serial and period conflict. Mistyped details, incomplete records, unusual distribution, or a replacement label are among several possibilities; the tool does not determine authenticity.</p></section>
+        <section><h3>Physical details are supporting evidence</h3><p>Labels, Made in Japan or Made in Taiwan markings, ACA or PSA markings, circuit boards, and component date codes may help with a separate inspection. They are not inputs to this decoder and should be treated only as supporting evidence.</p></section>
+      </div>
+      <aside class="estimate-note"><h3>Every result is an estimate</h3><p>This tool validates the serial format, date code, and compatibility with the model's possible production period. It cannot verify that a particular serial was issued or establish whether a pedal is authentic.</p></aside>
+    </article>
+
+    <section class="popular-models" aria-labelledby="popular-models-title">
+      <p class="eyebrow">POPULAR BOSS MODELS</p><h2 id="popular-models-title">Look up a popular model</h2>
+      <p>Choose a model to prefill the decoder, then enter the serial number from the pedal.</p>
+      <nav class="model-links" aria-label="Popular BOSS models"><a href="./?model=DS-1#decoder">DS-1</a><a href="./?model=SD-1#decoder">SD-1</a><a href="./?model=CE-2#decoder">CE-2</a><a href="./?model=BF-2#decoder">BF-2</a><a href="./?model=DM-2#decoder">DM-2</a><a href="./?model=CS-2#decoder">CS-2</a><a href="./?model=CE-3#decoder">CE-3</a><a href="./?model=OD-1#decoder">OD-1</a><a href="./?model=HM-2#decoder">HM-2</a><a href="./?model=DD-2#decoder">DD-2</a><a href="./?model=DD-3#decoder">DD-3</a></nav>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><div class="footer-heading"><p class="creator">Created and maintained by RETUNE WORKS</p><p class="footer-link-label">Follow RETUNE WORKS or visit the shop</p></div><nav class="social-links" aria-label="RETUNE WORKS links"><a class="social-button social-x" href="https://x.com/RETUNEWORKS" target="_blank" rel="noopener noreferrer"><span class="social-mark">X</span><span>View on X</span></a><a class="reverb-button" href="https://reverb.com/shop/retunes-shop" target="_blank" rel="noopener noreferrer" aria-label="RETUNE WORKS shop on Reverb"><img src="https://res.cloudinary.com/reverb-cms/image/upload/backfilled/curation/Shop-Button-215x65-Grey_etuqlv.png" width="215" height="65" loading="lazy" referrerpolicy="no-referrer" alt="Shop My Store on Reverb"></a><a class="social-button social-instagram" href="https://www.instagram.com/retuneworks/" target="_blank" rel="noopener noreferrer"><span class="social-mark">◎</span><span>View on Instagram</span></a></nav><p class="trademark">BOSS and Roland are trademarks of their respective owners. This site is not an official Roland Corporation website and is not affiliated with or endorsed by Roland Corporation.</p></div></footer>
+  <script type="module" src="../assets/app.js"></script>
+</body>
+</html>

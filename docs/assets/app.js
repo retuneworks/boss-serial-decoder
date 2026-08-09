@@ -184,17 +184,6 @@ function resetForm() {
   $('#model').focus();
 }
 
-function refreshOutputLanguage() {
-  if (state.formMessage) {
-    $('#form-message').textContent = localized(state.formMessage.ja, state.formMessage.en);
-  }
-  if (state.lastView?.type === 'result') renderResult(state.lastView.result, false);
-  if (state.lastView?.type === 'error') {
-    const view = state.lastView;
-    renderError(view.titleJa, view.titleEn, view.messageJa, view.messageEn, false);
-  }
-}
-
 function fillFromUrl() {
   const params = new URLSearchParams(window.location.search);
   if (params.get('model')) $('#model').value = params.get('model');
@@ -205,8 +194,8 @@ function fillFromUrl() {
 async function init() {
   try {
     const [modelsResponse, productionResponse] = await Promise.all([
-      fetch('./data/models.json'),
-      fetch('./data/production-periods.json')
+      fetch(new URL('../data/models.json', import.meta.url)),
+      fetch(new URL('../data/production-periods.json', import.meta.url))
     ]);
     if (!modelsResponse.ok || !productionResponse.ok) throw new Error('Failed to load model data');
     const [payload, productionPayload] = await Promise.all([modelsResponse.json(), productionResponse.json()]);
@@ -219,7 +208,6 @@ async function init() {
       .map((item) => `<option value="${escapeHtml(item.model)}">${escapeHtml(item.name)}</option>`).join('');
     $('#decoder-form').addEventListener('submit', estimateFromForm);
     $('#reset-button').addEventListener('click', resetForm);
-    window.addEventListener('site-language-change', refreshOutputLanguage);
     fillFromUrl();
   } catch (error) {
     console.error(error);
