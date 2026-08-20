@@ -1,7 +1,7 @@
 import { estimateManufacture, formatYearMonth } from './decoder.js';
 import { getLanguage } from './i18n.js';
 
-const state = { records: [], lastView: null, formMessage: null };
+const state = { records: [], descriptions: new Map(), lastView: null, formMessage: null };
 const $ = (selector) => document.querySelector(selector);
 
 function escapeHtml(value = '') {
@@ -116,7 +116,31 @@ function discrepancyDetails(result) {
   return `<aside class="source-discrepancy"><p class="source-discrepancy-title">${escapeHtml(heading)}</p><p>${escapeHtml(detail)}</p></aside>`;
 }
 
-function renderResult(result, shouldScroll = true) {
+function modelDescription(model) {
+  const description = state.descriptions.get(normalizeModel(model));
+  const record = recordsForModel(model)[0];
+  if (!description || !record) return '';
+  const name = record.name || record.effectType || '';
+  const effectType = record.effectType || name;
+  const descriptionText = localized(description.description_ja, description.description_en);
+  const lineageText = localized(description.lineage_ja, description.lineage_en);
+  return `
+    <section class="model-description" aria-labelledby="model-description-title">
+      <div class="model-description-heading">
+        <p class="model-description-kicker">${escapeHtml(localized('モデル解説', 'MODEL PROFILE'))}</p>
+        <h3 id="model-description-title">${escapeHtml(`${record.model}${name ? ` ${name}` : ''}`)}</h3>
+      </div>
+      <dl class="model-description-type">
+        <div><dt>${escapeHtml(localized('種類', 'Type'))}</dt><dd>${escapeHtml(effectType)}</dd></div>
+      </dl>
+      <div class="model-description-copy">
+        <div><h4>${escapeHtml(localized('モデルについて', 'About this model'))}</h4><p>${escapeHtml(descriptionText)}</p></div>
+        <div><h4>${escapeHtml(localized('モデルの系譜', 'Model lineage'))}</h4><p>${escapeHtml(lineageText)}</p></div>
+      </div>
+    </section>`;
+}
+
+function renderResult(result, model, shouldScroll = true) {
   const panel = $('#result-panel');
   const compatibility = compatibilityText(result.compatibility);
   state.lastView = { type: 'result', result };
@@ -130,7 +154,8 @@ function renderResult(result, shouldScroll = true) {
       <p class="compatibility-label">${escapeHtml(compatibility.label)}</p>
       <p class="compatibility-note">${escapeHtml(compatibility.note)}</p>
     </div>
-    ${discrepancyDetails(result)}`;
+    ${discrepancyDetails(result)}
+    ${modelDescription(model)}`;
   if (shouldScroll) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
@@ -175,7 +200,7 @@ function estimateFromForm(event) {
   }
 
   updateUrl(model, result.serial);
-  renderResult(result);
+  renderResult(result, model);
 }
 
 function resetForm() {
@@ -193,17 +218,22 @@ function fillFromUrl() {
 
 async function init() {
   try {
-    const [modelsResponse, productionResponse] = await Promise.all([
+    const [modelsResponse, productionResponse, descriptionsResponse] = await Promise.all([
       fetch(new URL('../data/models.json', import.meta.url)),
-      fetch(new URL('../data/production-periods.json', import.meta.url))
+      fetch(new URL('../data/production-periods.json', import.meta.url)),
+      fetch(new URL('../data/model-descriptions.json', import.meta.url))
     ]);
-    if (!modelsResponse.ok || !productionResponse.ok) throw new Error('Failed to load model data');
-    const [payload, productionPayload] = await Promise.all([modelsResponse.json(), productionResponse.json()]);
+    if (!modelsResponse.ok || !productionResponse.ok || !descriptionsResponse.ok) throw new Error('Failed to load model data');
+    const [payload, productionPayload, descriptionsPayload] = await Promise.all([
+      modelsResponse.json(), productionResponse.json(), descriptionsResponse.json()
+    ]);
     const productionByModel = new Map((productionPayload.models || []).map((item) => [item.model, item]));
     state.records = (payload.models || []).map((record) => ({
       ...record,
       productionCompatibility: productionByModel.get(record.model) || null
     }));
+    state.descriptions = new Map((descriptionsPayload.models || [])
+      .map((item) => [normalizeModel(item.model), item]));
     $('#model-list').innerHTML = uniqueModels(state.records)
       .map((item) => `<option value="${escapeHtml(item.model)}">${escapeHtml(item.name)}</option>`).join('');
     $('#decoder-form').addEventListener('submit', estimateFromForm);
