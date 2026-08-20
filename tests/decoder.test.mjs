@@ -24,11 +24,24 @@ assert.equal(detectAndDecode('12345').error, 'invalid-format');
 
 const payload = JSON.parse(await fs.readFile(new URL('../docs/data/models.json', import.meta.url), 'utf8'));
 const productionPayload = JSON.parse(await fs.readFile(new URL('../docs/data/production-periods.json', import.meta.url), 'utf8'));
+const descriptionPayload = JSON.parse(await fs.readFile(new URL('../docs/data/model-descriptions.json', import.meta.url), 'utf8'));
 const productionByModel = new Map(productionPayload.models.map((item) => [item.model, item]));
 const recordsFor = (model) => payload.models
   .filter((record) => record.model === model)
   .map((record) => ({ ...record, productionCompatibility: productionByModel.get(model) || null }));
 const now = new Date('2026-08-07T00:00:00Z');
+
+const uniqueModelNames = [...new Set(payload.models.map((record) => record.model))].sort();
+const descriptionModelNames = descriptionPayload.models.map((record) => record.model).sort();
+assert.equal(uniqueModelNames.length, 121);
+assert.equal(descriptionPayload.models.length, 121);
+assert.deepEqual(descriptionModelNames, uniqueModelNames);
+assert.ok(descriptionPayload.models.every((record) => record.description_ja?.trim()), 'all models have Japanese descriptions');
+assert.ok(descriptionPayload.models.every((record) => record.description_en?.trim()), 'all models have English descriptions');
+assert.ok(descriptionPayload.models.every((record) => record.lineage_ja?.trim()), 'all models have Japanese lineage text');
+assert.ok(descriptionPayload.models.every((record) => record.lineage_en?.trim()), 'all models have English lineage text');
+assert.equal(payload.models.filter((record) => record.model === 'DS-1').length, 2);
+assert.equal(descriptionPayload.models.filter((record) => record.model === 'DS-1').length, 1);
 
 const bf2 = estimateManufacture({ serial: '141100', modelRecords: recordsFor('BF-2'), now });
 assert.equal(formatYearMonth(bf2.date), '1982年1月');
@@ -110,6 +123,11 @@ assert.match(app, /整合性判定：✅ 整合性あり/);
 assert.match(app, /整合性判定：⚠️ 要追加確認/);
 assert.match(app, /製造可能期間とシリアルが矛盾しています/);
 assert.match(app, /source-discrepancy/);
+assert.match(app, /model-descriptions\.json/);
+assert.match(app, /model-description/);
+assert.match(app, /モデルについて/);
+assert.match(app, /モデルの系譜/);
+assert.doesNotMatch(app, /source_keys|verification/);
 assert.match(app, /特殊な流通個体/);
 assert.match(app, /型式入力エラー/);
 assert.match(app, /シリアル入力エラー/);
@@ -132,6 +150,10 @@ assert.match(englishHtml, /hreflang="ja" href="https:\/\/retuneworks\.github\.io
 assert.match(englishHtml, /hreflang="en" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/en\/"/);
 assert.match(englishHtml, /href="\.\.\/" lang="ja" hreflang="ja"/);
 assert.match(html, /href="\.\/en\/" lang="en" hreflang="en"/);
+assert.match(html, /1977年から2018年までに発売されたBOSSコンパクト・エフェクターの収録モデル/);
+assert.match(html, /2019年以降に新たに発売されたモデルは現在対象外/);
+assert.match(englishHtml, /models first released from 1977 through 2018/);
+assert.match(englishHtml, /Models first released in 2019 or later are currently outside the scope/);
 
 for (const [label, page] of [['Japanese home', html], ['English home', englishHtml]]) {
   const inputs = [...page.matchAll(/<input\b[^>]*\bid="([^"]+)"/g)].map((match) => match[1]);
@@ -159,6 +181,8 @@ assert.match(aboutHtml, /各メーカーとは関係のない独立した非公�
 assert.doesNotMatch(aboutHtml, /リンクフリー/);
 assert.match(aboutHtml, /単純なシリアル変換だけではなく/);
 assert.match(englishAboutHtml, /does not stop at a simple serial conversion/);
+assert.match(aboutHtml, /1977年から2018年までに発売されたBOSSコンパクト・エフェクターの収録モデル/);
+assert.match(englishAboutHtml, /models first released from 1977 through 2018/);
 assert.match(aboutHtml, /rel="canonical" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/about\.html"/);
 assert.match(englishAboutHtml, /rel="canonical" href="https:\/\/retuneworks\.github\.io\/boss-serial-decoder\/en\/about\.html"/);
 

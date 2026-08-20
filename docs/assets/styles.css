@@ -225,6 +225,23 @@ html:lang(en) .field.required > span::after { content: " Required"; }
 .source-discrepancy { margin-top: 1rem; padding: .85rem 1rem; border: 1px solid rgba(255,255,255,.32); border-radius: .65rem; background: rgba(255,255,255,.09); }
 .source-discrepancy p { margin: .3rem 0 0; color: rgba(255,255,255,.82); font-size: .84rem; line-height: 1.65; }
 .source-discrepancy .source-discrepancy-title { margin: 0; color: #fff; font-weight: 900; }
+.model-description {
+  margin-top: 1.25rem;
+  padding: clamp(1rem, 3vw, 1.4rem);
+  border-radius: .8rem;
+  background: var(--paper-strong);
+  color: var(--text);
+}
+.model-description-heading { padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+.model-description-kicker { margin: 0 0 .15rem; color: var(--accent-dark); font-size: .7rem; font-weight: 900; letter-spacing: .1em; }
+.model-description h3 { margin: 0; font-size: clamp(1.25rem, 3vw, 1.55rem); line-height: 1.35; }
+.model-description-type { margin: .8rem 0 0; }
+.model-description-type div { display: grid; grid-template-columns: minmax(7rem, .28fr) 1fr; gap: .8rem; }
+.model-description-type dt { color: var(--muted); font-size: .78rem; font-weight: 800; }
+.model-description-type dd { margin: 0; font-size: .9rem; font-weight: 850; }
+.model-description-copy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+.model-description-copy h4 { margin: 0 0 .35rem; font-size: .88rem; }
+.model-description-copy p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.75; }
 .result-consistent { background: var(--sage); }
 .result-consistent::before { content: "✓"; }
 .result-needs-review { background: var(--review); }
@@ -379,6 +396,8 @@ footer { padding: 2.75rem 1rem 3rem; background: var(--ink); color: #d6d8d4; }
   .primary-button, .secondary-button { width: 100%; min-height: 56px; }
   .result-card { padding: 1.2rem; }
   .period-summary div { grid-template-columns: 1fr; gap: .1rem; }
+  .model-description-type div { grid-template-columns: 1fr; gap: .05rem; }
+  .model-description-copy { grid-template-columns: 1fr; gap: 1rem; }
   .simple-info { grid-template-columns: 1fr; margin-top: 1.4rem; }
   .simple-info > div { padding: .8rem .5rem; }
   .guide, .popular-models { margin-top: 4rem; padding: 0 .35rem; }

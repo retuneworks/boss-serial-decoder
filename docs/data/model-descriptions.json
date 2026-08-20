@@ -1,0 +1,1591 @@
+{
+  "meta": {
+    "title": "BOSS compact pedal model descriptions research draft v1",
+    "generatedAt": "2026-08-20",
+    "scope": "models first released 1977-2018",
+    "sourceRecordCount": 122,
+    "uniqueModelCount": 121,
+    "duplicateRecordNote": "DS-1 is stored as two sales-period records in the current models.json; model descriptions should be keyed by model and shared by both records.",
+    "status": "research draft; no website changes applied",
+    "verificationLegend": {
+      "A": "BOSS公式の詳細製品ページ・公式歴史記事などで特徴を具体的に確認できたもの",
+      "B": "BOSS公式年表・取扱説明書アーカイブ等を中心に確認。説明は保守的に記述し、公開前の最終照合を推奨"
+    },
+    "implementationScopeText": {
+      "ja": "本サイトは、1977年から2018年までに発売されたBOSSコンパクト・エフェクターの収録モデルを対象としています。2019年以降に新たに発売されたモデルは現在対象外です。",
+      "en": "This site covers supported BOSS compact pedal models first released from 1977 through 2018. Models first released in 2019 or later are currently outside the scope of this database."
+    },
+    "researchPolicy": [
+      "発売/販売期間と製造可能期間は分離して扱う",
+      "公式資料同士でも期間差がある場合は自動的にどちらかへ統一しない",
+      "『後継』はBOSS公式資料で関係を確認できる場合を優先し、それ以外は『同系統の後発』等の弱い表現を使う",
+      "公式文章の転載ではなく、事実を確認したうえでサイト独自の短い説明文として再構成する",
+      "2019年以降に初発売されたモデルは今回の対象外"
+    ],
+    "sourceKeyNote": "Per-model source_keys are internal research tags. primarySources lists the central official references; individual official product-page URLs should be normalized before production implementation.",
+    "verificationCounts": {
+      "A": 102,
+      "B": 19
+    },
+    "additionalReviewModels": [
+      "GE-6",
+      "PH-1R",
+      "CE-3",
+      "PH-2",
+      "HF-2",
+      "FT-2",
+      "BF-2B",
+      "CE-2B",
+      "GE-7B",
+      "LM-2",
+      "EH-2",
+      "LM-2B",
+      "PN-2",
+      "PQ-3B",
+      "PQ-4",
+      "AW-2",
+      "HM-3",
+      "OD-2R",
+      "HR-2"
+    ]
+  },
+  "primarySources": [
+    {
+      "id": "boss_40th",
+      "name": "BOSS 40th Anniversary Compact Pedals",
+      "type": "official_timeline",
+      "url": "https://www.boss.info/jp/promos/40th_anniversary_compact_pedals/",
+      "use": "モデル名・系譜・発売/終了年の公式年表（ただし他のBOSS公式資料と年差があるため製造期間の正本にはしない）"
+    },
+    {
+      "id": "boss_repair",
+      "name": "BOSS 機種別経過年数＆修理対応期間一覧",
+      "type": "official_service_record",
+      "url": "https://www.boss.info/jp/support/service_repair/1708080000/",
+      "use": "BOSS側の機種別開始/終了年記録。40周年年表や販売資料と矛盾する場合があるため別ソースとして保持"
+    },
+    {
+      "id": "boss_manual_archive",
+      "name": "BOSS Manual Archive / Owners Manuals",
+      "type": "official_manual_archive",
+      "url": "https://www.boss.info/us/support/manual_archive/",
+      "use": "旧機種の機能・コントロール・接続仕様の確認"
+    },
+    {
+      "id": "boss_delay_history",
+      "name": "BOSS ディレイ・ペダルの歴史",
+      "type": "official_history_article",
+      "url": "https://articles.boss.info/ja/echoes-in-time-the-history-of-boss-delay-pedals/",
+      "use": "DM/DD/DSD/RV/PS系などの技術史・後継関係"
+    },
+    {
+      "id": "boss_pitch_history",
+      "name": "BOSS ピッチ・ペダルの歴史",
+      "type": "official_history_article",
+      "url": "https://articles.boss.info/ja/shifting-with-the-times-the-history-of-boss-pitch-pedals/",
+      "use": "OC/PS/HR系の技術史・後継関係"
+    },
+    {
+      "id": "boss_timeless",
+      "name": "時代を超えたBOSSペダルを",
+      "type": "official_history_article",
+      "url": "https://articles.boss.info/ja/timeless-boss-pedals-reborn/",
+      "use": "初期名機の回路・特徴・歴史的位置づけ"
+    },
+    {
+      "id": "boss_chorus_article",
+      "name": "BOSS コーラス関連記事",
+      "type": "official_history_article",
+      "url": "https://articles.boss.info/ja/five-creative-ways-to-use-a-chorus-pedal-for-guitar/",
+      "use": "CE-1/CE-2を中心としたコーラス史"
+    },
+    {
+      "id": "boss_fuzz_history",
+      "name": "What the Fuzz? The Origins of BOSS Fuzz Pedals",
+      "type": "official_history_article",
+      "url": "https://articles.boss.info/what-the-fuzz-the-origins-of-boss-fuzz-pedals/",
+      "use": "FZ-2/FZ-3/FZ-5などのファズ史"
+    },
+    {
+      "id": "boss_px1_archive",
+      "name": "BOSS PX-1 Plugout FX official product page",
+      "type": "official_product_archive",
+      "url": "https://www.boss.info/jp/products/px-1/",
+      "use": "PW-2/XT-2等の旧機種についてBOSSが現代に再解説した資料"
+    }
+  ],
+  "models": [
+    {
+      "model": "OD-1",
+      "description_ja": "1977年にPH-1、SP-1とともに登場したBOSS最初のコンパクト・ペダル3機種のひとつ。非対称クリッピングによる、真空管アンプを押し込んだような滑らかで自然なオーバードライブを狙ったモデルで、「OverDrive」というカテゴリーを広く定着させた歴史的な1台です。",
+      "description_en": "One of the first three BOSS compact pedals, introduced in 1977 alongside the PH-1 and SP-1. Its asymmetrical clipping was designed for smooth, natural, tube-amp-like breakup, and the OD-1 played a major role in establishing “overdrive” as a pedal category.",
+      "lineage_ja": "OD-1の考え方は1981年のSD-1へ受け継がれ、SD-1ではTONEコントロールなどが追加されました。",
+      "lineage_en": "Its core concept carried forward into the SD-1 in 1981, which added a Tone control and greater flexibility.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless",
+        "boss_sd1_history"
+      ]
+    },
+    {
+      "model": "SP-1",
+      "description_ja": "1977年にOD-1、PH-1と同時に発売された最初期のBOSSコンパクト・ペダル。特定の周波数帯を強調して音色の輪郭を変えるフィルター／スペクトラム系エフェクトで、SPECTRUMで中心周波数を選び、BALANCEで原音との混ざり具合を調整します。",
+      "description_en": "One of the original BOSS compact pedals released in 1977 with the OD-1 and PH-1. It is a spectrum/filter effect that emphasizes a selected frequency region, using Spectrum to choose the focus and Balance to blend the processed sound with the dry signal.",
+      "lineage_ja": "後継機というより、初期BOSSの独創的なトーン・シェイピング機として独立した位置づけです。",
+      "lineage_en": "Rather than having a simple direct successor, it stands as a distinctive early BOSS tone-shaping design.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless"
+      ]
+    },
+    {
+      "model": "PH-1",
+      "description_ja": "1977年にOD-1、SP-1とともに登場したBOSS最初のコンパクト・ペダル3機種のひとつ。4段式のフェイザーで、丸みのある低域を保ちながら滑らかなうねりを加えるのが特徴で、RATEとDEPTHだけのシンプルな操作で幅広い揺らぎを作れます。",
+      "description_en": "One of the first three BOSS compact pedals, released in 1977 with the OD-1 and SP-1. This four-stage phaser adds a smooth sweep while retaining a rounded low end, with a simple Rate and Depth layout.",
+      "lineage_ja": "BOSSフェイザー系の出発点で、PH-1R、PH-2、PH-3へと発展していきました。",
+      "lineage_en": "It is the starting point of the BOSS compact phaser line, followed by the PH-1R, PH-2, and PH-3.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless",
+        "boss_40th"
+      ]
+    },
+    {
+      "model": "GE-6",
+      "description_ja": "1978年に登場した6バンドのグラフィック・イコライザー。ギターの主要な周波数帯をスライダーで直接補正できる初期BOSSの音質補正ペダルで、後のGE-7につながるグラフィックEQ系の基礎となったモデルです。",
+      "description_en": "A six-band graphic equalizer introduced in 1978. It gave players direct slider control over key guitar frequency ranges and established the foundation for the later BOSS compact graphic-EQ line.",
+      "lineage_ja": "後発のGE-7では7バンド化され、より広い音作りに対応しました。",
+      "lineage_en": "The later GE-7 expanded the concept to seven bands and broader tone shaping.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "DS-1",
+      "description_ja": "1978年に登場したBOSSを代表するディストーション。トランジスタとオペアンプを組み合わせたハード・クリッピング回路により、当時として画期的だったタイトでアグレッシブな高ゲイン・サウンドと明瞭さを両立し、BOSS史上もっとも販売数の多いコンパクト・ペダルとなりました。",
+      "description_en": "Introduced in 1978, the DS-1 is one of BOSS’s defining distortion pedals. Its hard-clipping design combines transistor and op-amp stages to deliver tight, aggressive high gain with useful clarity, and it became the best-selling BOSS compact pedal.",
+      "lineage_ja": "後年のDS-2やデジタル技術を使うDS-1Xなど、BOSSのディストーション開発に大きな影響を与えました。",
+      "lineage_en": "It became a major reference point for later BOSS distortion designs, including models such as the DS-2 and the digitally processed DS-1X.",
+      "verification": "A",
+      "source_keys": [
+        "boss_ds1_history",
+        "boss_40th"
+      ]
+    },
+    {
+      "model": "TW-1",
+      "description_ja": "1978年発売のタッチ・ワウ／オート・ワウ。ピッキングの強さに応じてフィルターが自動的に動き、フォトカプラを使ったアナログ回路による滑らかなレスポンスが特徴です。UP／DOWNでフィルターの動く方向を切り替えられます。",
+      "description_en": "A touch-sensitive auto-wah introduced in 1978. Its analog photocoupler circuit moves the filter according to picking dynamics for a smooth response, with Up and Down modes for opposite sweep directions.",
+      "lineage_ja": "BOSSのダイナミック・フィルター／オート・ワウ系の初期モデルで、後のFT-2、AW-2、AW-3につながる系譜の一角です。",
+      "lineage_en": "An early member of BOSS’s dynamic-filter/auto-wah family, preceding later designs such as the FT-2, AW-2, and AW-3.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless"
+      ]
+    },
+    {
+      "model": "CS-1",
+      "description_ja": "1978年発売のBOSS初のCompression Sustainer。フォトカプラを用いた光学式コンプレッション回路により、低ノイズで太く独特な圧縮感を持ち、NORMAL／TREBLE切替とSUSTAINでキャラクターを調整できます。",
+      "description_en": "BOSS’s first Compression Sustainer, released in 1978. Its photocoupler-based optical compressor provides low-noise, characterful compression, with Normal/Treble switching and Sustain control.",
+      "lineage_ja": "後継のCS-2ではVCA方式へ移行し、ATTACKコントロールが追加されました。",
+      "lineage_en": "The succeeding CS-2 moved to a VCA-based circuit and added an Attack control.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless",
+        "boss_compressor_article",
+        "boss_px1_cs2"
+      ]
+    },
+    {
+      "model": "NF-1",
+      "description_ja": "1979年発売のノイズ・ゲート。入力信号が一定レベル以下になると不要なノイズを抑える初期のBOSSノイズ対策ペダルで、同時期のSG-1 Slow Gearの回路アイデアにも影響を与えました。",
+      "description_en": "A noise gate introduced in 1979. It suppresses unwanted noise when the input falls below a set level and represents an early BOSS approach to noise control; its circuit concept also informed the SG-1 Slow Gear.",
+      "lineage_ja": "後のNS-2ではノイズ・サプレッサーとしてより実用的な制御とエフェクト・ループを備える方向へ発展しました。",
+      "lineage_en": "The later NS-2 developed the noise-control concept further with more practical suppression and an effects loop.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_timeless"
+      ]
+    },
+    {
+      "model": "SG-1",
+      "description_ja": "1979年発売のSlow Gear。NF-1 Noise Gateの考え方を逆方向に利用し、入力音の立ち上がりを自動的に遅くして、ボリューム・ペダルを使わずにヴァイオリンのようなスウェルを作る非常に独創的なモデルです。",
+      "description_en": "The Slow Gear, released in 1979, reverses the basic gating idea of the NF-1 to automatically soften the attack of each note. It creates violin-like volume swells without requiring a volume pedal and remains one of BOSS’s most distinctive early effects.",
+      "lineage_ja": "明確な直接後継はなく、BOSS初期の特殊エフェクトを象徴する独立したモデルです。",
+      "lineage_en": "It has no simple direct successor and remains a distinctive standalone example of BOSS’s early experimental effects.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless"
+      ]
+    },
+    {
+      "model": "CE-2",
+      "description_ja": "1979年発売のコーラス。大型のCE-1をギター向けに再設計し、BOSSコンパクト筐体に収めた最初のコーラス・モデルで、BBDを使ったアナログ回路による温かく自然な揺らぎと、RATE／DEPTHのシンプルな操作が特徴です。",
+      "description_en": "A chorus pedal introduced in 1979, translating the large-format CE-1 concept into the compact BOSS chassis and tuning it for guitar. Its BBD-based analog circuit delivers warm, natural modulation with simple Rate and Depth controls.",
+      "lineage_ja": "CE-3などの後続コーラスへ発展し、2016年にはCE-2WがCE-2とCE-1のサウンドを現代的に再現しました。",
+      "lineage_en": "The line continued through later chorus models such as the CE-3, while the 2016 CE-2W revisited both CE-2 and CE-1 sounds.",
+      "verification": "A",
+      "source_keys": [
+        "boss_chorus_article",
+        "boss_timeless",
+        "boss_ce2w"
+      ]
+    },
+    {
+      "model": "BF-2",
+      "description_ja": "1980年発売のアナログ・フランジャー。BBDを用い、MANUAL、DEPTH、RATE、RESONANCEの4ノブで、穏やかなコーラス風の揺らぎから強烈なジェット・サウンドまで作れる長寿モデルです。",
+      "description_en": "An analog flanger introduced in 1980. Using BBD technology and Manual, Depth, Rate, and Resonance controls, it ranges from gentle chorus-like motion to dramatic jet-style sweeps.",
+      "lineage_ja": "大型BF-1の流れをコンパクト化したモデルで、後にBF-3へ発展しました。BF-2Bはベース向け派生です。",
+      "lineage_en": "It compacted the earlier BF-1 concept and was later followed by the BF-3; the BF-2B was a bass-oriented variation.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless",
+        "boss_40th"
+      ]
+    },
+    {
+      "model": "PH-1R",
+      "description_ja": "1980年発売のフェイザーで、PH-1の基本的なフェイズ効果にRESONANCEコントロールを追加した発展型です。フィードバック量を調整することで、穏やかな揺らぎからより強調されたフェイズ・サウンドまで扱えます。",
+      "description_en": "A phaser introduced in 1980 as an evolution of the PH-1, adding a Resonance control to the basic phasing effect. This allows the feedback intensity to be adjusted from subtle movement to a more pronounced sweep.",
+      "lineage_ja": "PH-1の発展型で、後のPH-2、PH-3へ続くBOSSフェイザー系の一世代です。",
+      "lineage_en": "An evolution of the PH-1 and one generation in the BOSS phaser line that later included the PH-2 and PH-3.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "SD-1",
+      "description_ja": "1981年発売のSUPER OverDrive。OD-1の非対称クリッピングによるアンプライクな歪みを受け継ぎながらTONEコントロールを追加し、中域に存在感があり低域が締まった使いやすいオーバードライブへ発展しました。",
+      "description_en": "The SUPER OverDrive, introduced in 1981, builds on the OD-1’s asymmetrical clipping and amp-like feel while adding a Tone control. Its focused mids and tightened low end made it a highly versatile overdrive.",
+      "lineage_ja": "OD-1の思想を直接受け継ぐ代表的後継モデルで、2014年にはWAZA CRAFT SD-1Wが登場しました。",
+      "lineage_en": "A direct continuation of the OD-1 concept, later revisited in premium form as the Waza Craft SD-1W in 2014.",
+      "verification": "A",
+      "source_keys": [
+        "boss_sd1_history",
+        "boss_timeless"
+      ]
+    },
+    {
+      "model": "DM-2",
+      "description_ja": "1981年発売のBOSS初のコンパクト・アナログ・ディレイ。BBDを用いた約20～300msのディレイと、帯域が自然に丸くなる温かい反復音が特徴で、シンプルな3ノブ構成ながらスラップバックから発振的な効果まで作れます。",
+      "description_en": "BOSS’s first compact analog delay, released in 1981. Its BBD circuit provides roughly 20–300 ms of warm, naturally darkening repeats, with a simple three-knob layout that ranges from slapback to self-oscillating textures.",
+      "lineage_ja": "後継のDM-3で低ノイズ化とクリアさが進み、2014年にはDM-2Wとして現代的に復活しました。",
+      "lineage_en": "The DM-3 followed with cleaner, lower-noise repeats, and the concept was revived in 2014 with the DM-2W.",
+      "verification": "A",
+      "source_keys": [
+        "boss_delay_history",
+        "boss_px1_dm2"
+      ]
+    },
+    {
+      "model": "GE-7",
+      "description_ja": "1981年発売の7バンド・グラフィック・イコライザー。ギターに重要な帯域を個別にブースト／カットでき、音色補正だけでなく中域ブーストやレベル・ブースターとしても使える定番EQです。",
+      "description_en": "A seven-band graphic equalizer introduced in 1981. It provides individual boost/cut control over key guitar frequencies and can be used for corrective EQ, mid boosts, or overall level boosting.",
+      "lineage_ja": "GE-6を拡張したBOSSの代表的グラフィックEQで、ベース用にはGE-7B／GEB-7系が展開されました。",
+      "lineage_en": "It expanded the earlier GE-6 concept, while bass-oriented branches included the GE-7B and later GEB-7.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ge7_current"
+      ]
+    },
+    {
+      "model": "CS-2",
+      "description_ja": "1981年末に登場したCompression Sustainer。CS-1の光学式からVCA方式へ変更し、ATTACKを追加することで、より速く精密なレスポンスとサスティン、パンチを両立したモデルです。",
+      "description_en": "A Compression Sustainer introduced in late 1981. It replaced the CS-1’s optical design with a VCA-based circuit and added an Attack control for faster, more precise response with strong sustain and punch.",
+      "lineage_ja": "CS-1の後継で、1986年のCS-3へ続くBOSSコンプレッサー系の重要な中間世代です。",
+      "lineage_en": "The successor to the CS-1 and an important bridge to the CS-3 introduced in 1986.",
+      "verification": "A",
+      "source_keys": [
+        "boss_px1_cs2",
+        "boss_compressor_article"
+      ]
+    },
+    {
+      "model": "OC-2",
+      "description_ja": "1982年発売のアナログ・オクターバー。原音に1オクターブ下と2オクターブ下の音を加えられ、各レベルを独立して調整できます。独特の温かい低音とシンセ的な質感で、ギターだけでなくベースでも定番となりました。",
+      "description_en": "An analog octave pedal introduced in 1982. It adds one- and two-octaves-down voices to the dry signal with independent level controls, producing a warm, synth-like low end that became a staple for guitarists and bassists.",
+      "lineage_ja": "後にポリフォニック処理を備えたOC-3へ発展しました。",
+      "lineage_en": "The concept later evolved into the polyphonic-capable OC-3.",
+      "verification": "A",
+      "source_keys": [
+        "boss_pitch_history",
+        "boss_timeless"
+      ]
+    },
+    {
+      "model": "VB-2",
+      "description_ja": "1982年発売の専用ビブラート・ペダル。BBDを使って音程そのものを周期的に揺らす本格的なビブラートで、RATE、DEPTH、RISE TIMEに加え、ラッチ／アンラッチ的な演奏表現も可能な先進的モデルでした。",
+      "description_en": "A dedicated vibrato pedal introduced in 1982. Its BBD circuit modulates pitch directly for true vibrato, with Rate, Depth, and Rise Time controls plus expressive switching behavior that was highly advanced for its era.",
+      "lineage_ja": "長く希少モデルとなりましたが、2016年にVB-2WとしてWAZA CRAFTで復活しました。",
+      "lineage_en": "Long regarded as a rare classic, it was revived in 2016 as the Waza Craft VB-2W.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless",
+        "boss_vb2w"
+      ]
+    },
+    {
+      "model": "CE-3",
+      "description_ja": "1982年末～1983年頃に登場したコーラス。CE-2の後にステレオ出力を取り入れて空間的な広がりを強化した世代のモデルで、アナログ・コーラスらしい揺らぎを保ちながら2台のアンプを使った広がりのある出力に対応します。",
+      "description_en": "Introduced around late 1982 to 1983, the CE-3 follows the CE-2 generation and adds stereo output for a wider spatial image while retaining an analog chorus character.",
+      "lineage_ja": "CE-2から続くコンパクト・コーラス系の一世代で、後にはCE-5などへ機能が拡張されました。",
+      "lineage_en": "One generation in the compact chorus line following the CE-2, with later models such as the CE-5 expanding the control set further.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_ce3_article"
+      ]
+    },
+    {
+      "model": "PSM-5",
+      "description_ja": "1980年代前半に登場したPower Supply & Master Switch。複数のBOSSコンパクト・ペダルへ電源を分配しつつ、エフェクト群をまとめて切り替えるためのユーティリティ・ペダルで、初期のBOSSペダルボード環境を支えました。",
+      "description_en": "An early-1980s Power Supply & Master Switch designed to distribute power to multiple BOSS compact pedals while providing master switching for a group of effects. It was an important utility in early BOSS pedalboard systems.",
+      "lineage_ja": "音を加工するエフェクトというより、BCB-6など当時のペダルボード運用を支えるインフラ的モデルです。",
+      "lineage_en": "Rather than a sound-shaping effect, it served as pedalboard infrastructure for systems such as the BCB-6.",
+      "verification": "A",
+      "source_keys": [
+        "boss_50th",
+        "boss_40th"
+      ]
+    },
+    {
+      "model": "HM-2",
+      "description_ja": "1983年発売のHeavy Metalディストーション。強い歪みと独特の中域キャラクターを持ち、すべてのノブを最大付近にした「チェーンソー」サウンドでスウェーデンのデスメタルを象徴するペダルとなりました。",
+      "description_en": "The Heavy Metal distortion, introduced in 1983, combines intense gain with a distinctive midrange voice. Its famous near-all-max “chainsaw” setting became closely associated with Swedish death metal.",
+      "lineage_ja": "BOSSのメタル系歪みの重要な出発点のひとつで、後にMT-2やHM-3など異なる方向性のメタル・ペダルが続きました。",
+      "lineage_en": "A key early BOSS metal-distortion design, followed by later metal-focused pedals such as the MT-2 and HM-3 with different voicings.",
+      "verification": "A",
+      "source_keys": [
+        "boss_hm2_article",
+        "boss_waza_history"
+      ]
+    },
+    {
+      "model": "DD-2",
+      "description_ja": "1980年代前半に登場した世界初のペダル型デジタル・ディレイで、BOSS初のデジタル・ペダルでもあります。Roland SDE-3000系の技術をコンパクト筐体へ持ち込み、最大約800msのクリアなディレイとHold機能などを実現しました。",
+      "description_en": "An early-1980s landmark: the world’s first digital delay in stompbox form and BOSS’s first digital pedal. It brought technology related to Roland’s SDE-3000 into a compact pedal, providing up to about 800 ms of clean delay plus Hold functionality.",
+      "lineage_ja": "部品コスト低下を背景に、ほぼ同等仕様のDD-3へ引き継がれました。",
+      "lineage_en": "As digital component costs fell, the design transitioned into the largely equivalent DD-3.",
+      "verification": "A",
+      "source_keys": [
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "DM-3",
+      "description_ja": "1984年発売のアナログ・ディレイ。DM-2を発展させ、BBD特有の温かさを保ちながら反復音をややクリアにし、ノイズ低減やドライ／エフェクトの分離出力など実用性を高めました。",
+      "description_en": "An analog delay introduced in 1984 as an evolution of the DM-2. It retained BBD warmth while making repeats somewhat cleaner and quieter, and added useful routing such as separate dry/effect outputs.",
+      "lineage_ja": "DM-2の後継で、2014年のDM-2W登場までBOSS最後の完全アナログ・ディレイとなりました。",
+      "lineage_en": "The successor to the DM-2, and the last fully analog BOSS delay until the DM-2W arrived in 2014.",
+      "verification": "A",
+      "source_keys": [
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "PH-2",
+      "description_ja": "1984年発売のSUPER Phaser。初期PHシリーズよりも強いキャラクターと幅広いフェイズ効果を狙ったモデルで、2種類のMODEを備え、穏やかな揺らぎからより深く複雑なフェイズ・サウンドまで対応します。",
+      "description_en": "The SUPER Phaser, introduced in 1984, expanded the BOSS phaser palette with a stronger character and two operating modes, covering gentle movement through deeper, more complex phase sweeps.",
+      "lineage_ja": "PH-1／PH-1Rの後に登場した世代で、2000年のPH-3へつながるBOSSフェイザー系の一角です。",
+      "lineage_en": "A later generation after the PH-1/PH-1R and part of the lineage that ultimately led to the PH-3.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "DF-2",
+      "description_ja": "1984年発売のSUPER Feedbacker & Distortion。通常のディストーションに加え、ペダルを踏み続けることで入力音から人工的なフィードバック音を生成できるのが最大の特徴で、アンプの大音量フィードバックを足元で再現する独創的なモデルです。",
+      "description_en": "The SUPER Feedbacker & Distortion, released in 1984, combines distortion with an electronically generated feedback effect. Holding the pedal sustains a synthesized feedback-like tone, bringing an amp-feedback-style effect under foot control.",
+      "lineage_ja": "直接後継というより、BOSSの「歪み＋特殊効果」系の独創的モデルで、後のFB-2にもフィードバック生成という発想が見られます。",
+      "lineage_en": "Rather than a straightforward lineage model, it is an early BOSS example of combining drive with a special effect; the later FB-2 revisited controlled feedback generation in a different form.",
+      "verification": "A",
+      "source_keys": [
+        "boss_timeless"
+      ]
+    },
+    {
+      "model": "DSD-2",
+      "description_ja": "1985年発売のDigital Sampler/Delay。DD-2系のデジタル・ディレイに約800msのワンショット・サンプラーを組み合わせ、外部トリガー入力も備えた当時として非常に先進的なモデルです。",
+      "description_en": "A Digital Sampler/Delay introduced in 1985, combining DD-2-style digital delay with roughly 800 ms of one-shot sampling and an external trigger input—highly advanced features for a compact pedal at the time.",
+      "lineage_ja": "後継DSD-3へ受け継がれ、BOSS公式も後年のLoop Stationにつながる先駆的存在と位置づけています。",
+      "lineage_en": "The concept continued in the DSD-3, and BOSS describes the DSD series as an early precursor to the later Loop Station family.",
+      "verification": "A",
+      "source_keys": [
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "OD-2",
+      "description_ja": "1985年発売のTURBO OverDrive。通常のオーバードライブに加えて、よりゲインと押し出し感を高めるTURBOモードを備え、1台で複数のドライブ・キャラクターを使い分けられる設計です。",
+      "description_en": "The TURBO OverDrive, introduced in 1985, adds a Turbo mode to a conventional overdrive voice for more gain and impact, allowing two distinct drive characters from one pedal.",
+      "lineage_ja": "後にOD-2Rへ発展し、OD-2RではTURBOモードの外部リモート切替にも対応しました。",
+      "lineage_en": "It later evolved into the OD-2R, which added remote switching capability for the Turbo mode.",
+      "verification": "A",
+      "source_keys": [
+        "boss_px1_od2",
+        "boss_40th"
+      ]
+    },
+    {
+      "model": "HF-2",
+      "description_ja": "1985年発売のHi Band Flanger。通常のフランジャーより高い周波数帯を中心に処理することで、低域を比較的保ちながら軽やかで明るいフランジングを狙った個性的なモデルです。",
+      "description_en": "The Hi Band Flanger, introduced in 1985, focuses its modulation higher in the frequency spectrum than a conventional flanger, helping retain low-end weight while producing a lighter, brighter sweep.",
+      "lineage_ja": "BF-2の単純な後継ではなく、異なる帯域設計を持つフランジャーの派生モデルです。",
+      "lineage_en": "It is not simply a BF-2 successor, but a frequency-focused variation within the BOSS flanger family.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "DC-2",
+      "description_ja": "1985年発売のDimension C。Roland SDD-320 Dimension Dの考え方をコンパクト化し、一般的なコーラスのような明確な周期的揺れを抑えながら、音に立体的な広がりと厚みを与える独自のモジュレーションです。4つのプリセット・ボタンだけという操作系も特徴です。",
+      "description_en": "The Dimension C, introduced in 1985, brought the spatial concept of the Roland SDD-320 Dimension D into compact-pedal form. Rather than obvious cyclic chorus wobble, it creates width and depth with a distinctive four-button preset interface.",
+      "lineage_ja": "1988年にはデジタル方式のDC-3へ展開し、2018年にはDC-2WとしてアナログDimensionサウンドが復活しました。",
+      "lineage_en": "The concept moved into the digital DC-3 in 1988 and returned in analog Waza form as the DC-2W in 2018.",
+      "verification": "A",
+      "source_keys": [
+        "boss_px1_dc2",
+        "boss_waza_history",
+        "boss_dc2w"
+      ]
+    },
+    {
+      "model": "DD-3",
+      "description_ja": "1986年発売のDigital Delay。デジタル部品の低価格化によりDD-2の基本仕様をより手頃にした後継機で、クリアな最大約800msのディレイ、シンプルな操作、Hold機能で長期間にわたり定番となりました。",
+      "description_en": "The Digital Delay introduced in 1986 as the lower-cost successor to the DD-2 after digital component prices fell. It retained the core roughly 800 ms delay architecture, simple controls, and Hold function, becoming a long-running standard.",
+      "lineage_ja": "DD-2の直接後継。高機能系はDD-5以降へ発展する一方、DD-3自体もシンプルな定番として長く併存しました。",
+      "lineage_en": "A direct successor to the DD-2. While the feature-rich branch advanced through the DD-5 and beyond, the DD-3 remained a simple long-running standard.",
+      "verification": "A",
+      "source_keys": [
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "DSD-3",
+      "description_ja": "1986年発売のDigital Sampler/Delay。DSD-2のデジタル・ディレイ＋短時間サンプラーというコンセプトを継承した後継モデルで、コンパクト・ペダルでサンプリングを扱ったBOSS初期の実験的シリーズです。",
+      "description_en": "A Digital Sampler/Delay introduced in 1986, continuing the DSD-2 concept of combining digital delay with short one-shot sampling. It belongs to BOSS’s early experiments with sampling in compact-pedal form.",
+      "lineage_ja": "DSD-2の後継。DSDシリーズは後年のLoop Stationにつながる先駆的な存在と位置づけられます。",
+      "lineage_en": "The successor to the DSD-2; the DSD series is regarded by BOSS as an early precursor to the later Loop Station concept.",
+      "verification": "A",
+      "source_keys": [
+        "boss_delay_history",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "CS-3",
+      "description_ja": "1986年発売のCompression Sustainer。VCA方式のコンプレッションを使い、LEVEL、TONE、ATTACK、SUSTAINの4ノブで圧縮感、アタック、音色を幅広く調整できる長寿モデルです。",
+      "description_en": "A Compression Sustainer introduced in 1986. Its VCA-style compression and four controls—Level, Tone, Attack, and Sustain—provide wide control over dynamics, attack, and tonal balance.",
+      "lineage_ja": "CS-1、CS-2から続くBOSSコンプレッサー系の定番モデルで、後年はMDPを使うCP-1Xが別の先進的方向を提示しました。",
+      "lineage_en": "A long-running continuation of the CS-1/CS-2 compressor family; later, the MDP-based CP-1X explored a more advanced multiband direction.",
+      "verification": "A",
+      "source_keys": [
+        "boss_compressor_article",
+        "boss_40th"
+      ]
+    },
+    {
+      "model": "FT-2",
+      "description_ja": "1986年発売のDynamic Filter。演奏の強弱に応じてフィルターが動くエンベロープ・フィルター系のモデルで、ファンク的なオート・ワウからシンセ風のフィルター表現まで、ピッキングに反応する音色変化を作ります。",
+      "description_en": "A Dynamic Filter introduced in 1986. It is an envelope-filter style effect whose sweep responds to playing dynamics, covering auto-wah-like funk sounds and more synth-like filter movement.",
+      "lineage_ja": "TW-1から続くBOSSのダイナミック・フィルター系の一世代で、後にAW-2、AW-3へ展開しました。",
+      "lineage_en": "One generation in BOSS’s dynamic-filter family after the TW-1, followed later by the AW-2 and AW-3.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "MZ-2",
+      "description_ja": "1987年に登場した「Digital Metalizer」。ディストーションにデジタル処理によるコーラス／ダブリング系の広がりを組み合わせ、単体の歪みだけでは得にくい立体的でワイドなメタル・サウンドを狙った個性的なモデルです。",
+      "description_en": "Introduced in 1987, the Digital Metalizer combines distortion with digital chorus/doubling-style processing for a wide, layered metal sound that goes beyond a conventional distortion pedal.",
+      "lineage_ja": "HM-2やMT-2とは別方向に、歪みと空間的な厚みを一体化したBOSSの実験的なメタル系モデルです。",
+      "lineage_en": "Rather than following the HM-2/MT-2 path directly, it represents a more experimental BOSS approach that combines distortion with spatial thickening.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_mz2_article"
+      ]
+    },
+    {
+      "model": "BF-2B",
+      "description_ja": "BF-2をベース向けに展開したBass Flanger。低音楽器のレンジを意識したフランジングで、ベースの芯を残しながら周期的なうねりやジェット感を加えるためのモデルです。",
+      "description_en": "A bass-oriented version of the BF-2 flanger, designed to add sweeping and jet-like modulation while keeping the fundamental character of the bass intact.",
+      "lineage_ja": "BF-2から派生したベース専用モデルで、後年のBF-3ではGUITAR/BASS入力を1台に統合する方向へ発展しました。",
+      "lineage_en": "It is a bass-specific offshoot of the BF-2; the later BF-3 integrated guitar and bass use into one model.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "CE-2B",
+      "description_ja": "CE-2系のコーラスをベース向けにチューニングしたBass Chorus。低域の存在感を保ちながら上の帯域を中心に揺らぎと広がりを加えることを狙った、初期のベース専用コーラスです。",
+      "description_en": "A bass-oriented chorus derived from the CE-2 family, intended to preserve low-end weight while adding movement and width mainly to the upper portion of the bass signal.",
+      "lineage_ja": "後継のCEB-3ではベース用コーラスとしての帯域処理とコントロール性がさらに整理されました。",
+      "lineage_en": "The later CEB-3 further refined the bass-chorus concept with more deliberate frequency handling and control.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "GE-7B",
+      "description_ja": "ベース用に帯域を設定した7バンド・グラフィックEQ。低音域から中高域までを細かく補正でき、楽器やアンプの癖の補正、スラップの音作り、ブースト用途などに使える実用的なモデルです。",
+      "description_en": "A seven-band graphic equalizer voiced for bass, allowing detailed shaping from the low range through the upper mids for instrument/amp correction, slap tones, or level boosting.",
+      "lineage_ja": "後継のGEB-7へ受け継がれるBOSSベースEQ系の前身です。",
+      "lineage_en": "It is an earlier member of the BOSS bass-EQ line that was later continued by the GEB-7.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "LM-2",
+      "description_ja": "入力信号のピークを抑えて音量差を整えるリミッター。コンプレッサーよりもピーク制御を主目的とし、強いピッキングでの音量飛び出しを抑えながら演奏のダイナミクスを扱いやすくするモデルです。",
+      "description_en": "A limiter designed to restrain signal peaks and even out sudden level jumps. Compared with a typical compressor, its main role is peak control while retaining a usable playing feel.",
+      "lineage_ja": "後にベース向けのLM-2B、さらにLMB-3 Bass Limiter Enhancerへ展開しました。",
+      "lineage_en": "The concept was extended to the LM-2B for bass and later to the LMB-3 Bass Limiter Enhancer.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "NS-2",
+      "description_ja": "1987年から続くBOSSの定番ノイズ・サプレッサー。VCA回路で演奏感への影響を抑えながら不要ノイズを低減し、SEND/RETURNループに歪み系などのノイズ源を入れることで効果的に処理できます。MUTE機能やDC OUTも備えます。",
+      "description_en": "A long-running BOSS noise suppressor introduced in 1987. Its VCA-based design reduces unwanted noise with minimal impact on playing feel, and the Send/Return loop can isolate noisy gain pedals effectively. It also provides mute and DC-out functions.",
+      "lineage_ja": "NF-1 Noise Gateに続くノイズ対策モデルで、単純なゲートより自然な抑制を狙った設計です。",
+      "lineage_en": "It followed the earlier NF-1 Noise Gate and represents a more integrated approach to practical noise suppression.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ns2_product"
+      ]
+    },
+    {
+      "model": "PS-2",
+      "description_ja": "1987年登場のDigital Pitch Shifter/Delay。BOSSコンパクトで連続的なピッチ・シフト機能を本格的に扱った初期モデルで、ピッチ変化とデジタル・ディレイを1台にまとめています。",
+      "description_en": "Introduced in 1987, the Digital Pitch Shifter/Delay is an early BOSS compact pedal to offer continuous pitch shifting, combining pitch effects and digital delay in one unit.",
+      "lineage_ja": "PS-2 → PS-3へ発展し、その後はHR-2、PS-5、PS-6などのハーモナイザー／ピッチ系へ技術が展開しました。",
+      "lineage_en": "The concept developed into the PS-3 and later broader harmonizer/pitch products such as the HR-2, PS-5, and PS-6.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_pitch_history"
+      ]
+    },
+    {
+      "model": "RV-2",
+      "description_ja": "1987年に発売されたBOSS初期のデジタル・リバーブ・コンパクト。スタジオ機器で一般的だったデジタル・リバーブを小型ペダルへ持ち込み、ルームやホールなど複数の残響を足元で扱えるようにした歴史的なモデルです。",
+      "description_en": "Released in 1987, the RV-2 was an early BOSS compact digital reverb that brought studio-style digital ambience such as room and hall sounds into a stompbox format.",
+      "lineage_ja": "後継のRV-3ではリバーブに加えてディレイ機能も統合されました。",
+      "lineage_en": "Its successor, the RV-3, combined reverb with delay functions.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "DS-2",
+      "description_ja": "1987年発売のTURBO Distortion。中低域の厚みとエッジを両立するTURBO Iと、ミッドを強く押し出してリード向きのTURBO IIという2種類の歪みを搭載し、REMOTE端子からモード切替もできます。",
+      "description_en": "Released in 1987, the TURBO Distortion offers two distinct voices: TURBO I for a thick, edged distortion and TURBO II for a strong mid-forward lead tone. The modes can also be switched remotely.",
+      "lineage_ja": "DS-1とは別の2モード構成を持つ長寿モデルで、BOSSディストーションの主要系統のひとつです。",
+      "lineage_en": "A long-running two-mode design that sits alongside the DS-1 as one of BOSS's major distortion lines.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ds2_product"
+      ]
+    },
+    {
+      "model": "DC-3",
+      "description_ja": "DC-2のDimension系コンセプトをデジタル処理へ発展させたDigital Space-D。一般的なコーラスのような大きな揺れを前面に出すより、音像に幅と空間的な厚みを加える方向を狙い、DC-2より細かな調整が可能です。",
+      "description_en": "The Digital Space-D develops the DC-2 Dimension concept with digital processing, emphasizing stereo width and spatial thickness rather than an obvious chorus wobble, with more user adjustment than the DC-2.",
+      "lineage_ja": "DC-2の後に登場したDimension系モデルで、後年のDC-2WがDC-2／Roland SDD-320の系譜を再構築しました。",
+      "lineage_en": "It followed the DC-2 in the Dimension family; the later DC-2W revisited the DC-2/Roland SDD-320 heritage.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_dimension_history"
+      ]
+    },
+    {
+      "model": "CH-1",
+      "description_ja": "1989年登場のSUPER Chorus。透明感のあるコーラスに加え、E.LEVELやEQを備えて原音との混ざり方や明るさを調整でき、ステレオ出力による広がりも作れる実用性の高いコーラスです。",
+      "description_en": "Introduced in 1989, the SUPER Chorus provides a clear chorus sound with effect-level and EQ control plus stereo output, making it easy to tailor both the blend and brightness of the modulation.",
+      "lineage_ja": "CE系とは並行して長く続くBOSSの代表的コーラス・ラインのひとつです。",
+      "lineage_en": "It became one of BOSS's major long-running chorus lines alongside the CE family.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ch1_product"
+      ]
+    },
+    {
+      "model": "EH-2",
+      "description_ja": "1990年発売のEnhancer。単純なEQとは異なり、信号の倍音やアタック感を強調して輪郭や抜けを補うためのトーン・プロセッサーで、こもった音を前に出したり、存在感を加える用途に向きます。",
+      "description_en": "Released in 1990, the Enhancer is a tone processor rather than a conventional EQ, intended to emphasize harmonic/attack information and restore clarity and presence to a dull or buried sound.",
+      "lineage_ja": "直接の後継を持たない、BOSSコンパクトの中でも比較的珍しい音質補正系モデルです。",
+      "lineage_en": "It is a comparatively unusual BOSS compact tone-enhancement design without a straightforward direct successor.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "LM-2B",
+      "description_ja": "LM-2をベース向けに最適化したBass Limiter。低音の太さを保ちながらピークを抑え、強いアタックやスラップで音量が飛び出しすぎるのを整えるためのダイナミクス系モデルです。",
+      "description_en": "A bass-optimized version of the LM-2 limiter, designed to control strong peaks and slap transients while retaining the weight of the low end.",
+      "lineage_ja": "LM-2Bの役割は後のLMB-3 Bass Limiter Enhancerへ引き継がれました。",
+      "lineage_en": "Its role was later continued by the LMB-3 Bass Limiter Enhancer.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "PN-2",
+      "description_ja": "1990年発売のTremolo/Pan。モノラルでは音量を周期的に揺らすトレモロ、ステレオ接続では左右へ音像を移動させるパンニングとして使え、波形切替により滑らかな揺れから角張った効果まで作れます。",
+      "description_en": "Released in 1990, the Tremolo/Pan can act as a conventional amplitude tremolo in mono or move the sound between left and right in stereo, with waveform choices ranging from smooth to more abrupt modulation.",
+      "lineage_ja": "直接の同型後継はありませんが、BOSSコンパクトにおけるステレオ・パン／トレモロの代表的なモデルです。",
+      "lineage_en": "It had no simple like-for-like successor, but remains a distinctive BOSS compact stereo pan/tremolo design.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "OS-2",
+      "description_ja": "オーバードライブ回路とディストーション回路を1台に搭載し、COLORノブで両者を連続的にブレンドできるモデル。軽いクランチから硬質なディストーションまで、中間的な質感も含めて1台で作れるのが特徴です。",
+      "description_en": "A dual-circuit pedal combining overdrive and distortion, with a COLOR control that continuously blends the two characters from softer crunch to harder distortion and the shades in between.",
+      "lineage_ja": "OD系とDS系を切り替えるのではなく混ぜ合わせるという、BOSSでは独特な歪み設計です。",
+      "lineage_en": "Rather than simply switching between OD and DS voices, it blends the two approaches, making it a distinctive BOSS drive design.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_os2_product"
+      ]
+    },
+    {
+      "model": "PQ-3B",
+      "description_ja": "ベース用のパラメトリックEQ。グラフィックEQの固定バンドとは異なり、調整したい周波数帯を選びながら持ち上げ／カットできるため、ベースの癖の補正や特定帯域の強調に柔軟に対応できます。",
+      "description_en": "A parametric equalizer for bass. Unlike a fixed-band graphic EQ, it lets the player select frequency areas to boost or cut, making it flexible for corrective shaping or emphasizing specific bass ranges.",
+      "lineage_ja": "PQ-4と同時期のパラメトリックEQ系で、こちらはベース向けに帯域設定されたモデルです。",
+      "lineage_en": "It belongs to the same early-1990s parametric-EQ family as the PQ-4, but is voiced for bass.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "PQ-4",
+      "description_ja": "ギター向けのパラメトリックEQ。複数帯域で中心周波数を動かしながらブースト／カットでき、固定周波数のグラフィックEQより狙った帯域へ細かく働きかけられる音作り・補正用モデルです。",
+      "description_en": "A parametric equalizer for guitar, allowing selected frequency centers to be boosted or cut for more targeted tone shaping than a fixed-frequency graphic EQ.",
+      "lineage_ja": "同時期にはベース向けのPQ-3Bもあり、BOSSがパラメトリックEQをコンパクト化した系統です。",
+      "lineage_en": "The contemporary PQ-3B served bass players, forming BOSS's compact parametric-EQ family of the period.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "MT-2",
+      "description_ja": "1991年登場のMetal Zone。非常に深いハイゲイン・ディストーションと、可変ミッドを含む強力な3バンドEQによって、重いリズムから鋭いリードまで幅広いメタル・サウンドを作れるBOSSを代表する歪みペダルです。",
+      "description_en": "Introduced in 1991, the Metal Zone combines very high-gain distortion with a powerful three-band EQ featuring sweepable mids, covering heavy rhythm sounds through cutting lead tones.",
+      "lineage_ja": "HM-2などに続くBOSSメタル系歪みの中心的モデルとなり、2018年にはMT-2W WAZA CRAFTへ発展しました。",
+      "lineage_en": "It became a central BOSS metal-distortion model following earlier designs such as the HM-2, and was reworked as the MT-2W WAZA CRAFT in 2018.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_mt2_history",
+        "boss_mt2w_product"
+      ]
+    },
+    {
+      "model": "AW-2",
+      "description_ja": "1991年発売のAuto Wah。ピッキングの強弱に反応するエンベロープ・フィルター的なワウに加え、周期的にフィルターを動かすモジュレーション的な使い方もできる、表現幅の広いオート・ワウです。",
+      "description_en": "Released in 1991, the Auto Wah combines touch-responsive envelope-style filtering with modulation-driven filter movement, giving it a wider range than a simple one-mode auto-wah.",
+      "lineage_ja": "後継世代のAW-3ではDynamic WahとしてHumanizerや外部ペダル対応などが追加されました。",
+      "lineage_en": "The later AW-3 Dynamic Wah expanded the concept with features such as Humanizer and expression-pedal control.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "LS-2",
+      "description_ja": "2系統のエフェクト・ループ／信号ラインを切り替え・組み合わせるライン・セレクター。A/Bそれぞれにレベル調整を備え、6種類のルーティング・モードでエフェクト群、アンプ、音量差などを足元から管理できます。",
+      "description_en": "A line selector for switching and combining two signal/effect loops. Separate A/B level controls and six routing modes make it useful for managing effects chains, amps, or level changes from the pedalboard.",
+      "lineage_ja": "音色を直接変えるエフェクターではなく、ペダルボードのルーティングを司る長寿ユーティリティ・モデルです。",
+      "lineage_en": "Rather than altering tone itself, it is a long-running utility pedal for routing and pedalboard control.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ls2_product"
+      ]
+    },
+    {
+      "model": "CE-5",
+      "description_ja": "1991年登場のChorus Ensemble。RATE／DEPTHに加えてE.LEVELとフィルター系の音色調整を備え、浅い広がりから深いコーラスまで原音とのバランスを細かく作れるステレオ・コーラスです。",
+      "description_en": "Introduced in 1991, the Chorus Ensemble adds effect-level and tonal filtering to the familiar rate/depth controls, allowing precise blends from subtle width to deeper stereo chorus.",
+      "lineage_ja": "CE-2／CE-3などのChorus系を受け継ぎつつ、より幅広い音色調整を可能にした世代です。",
+      "lineage_en": "It continues the BOSS Chorus line after models such as the CE-2/CE-3 while offering more detailed tonal control.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ce5_product"
+      ]
+    },
+    {
+      "model": "FZ-2",
+      "description_ja": "1993年発売のHYPER Fuzz。強烈なファズを作る2種類のFUZZモードに加え、GAIN BOOSTモードを備えたモデルで、荒々しく飽和した低音感のあるサウンドから強力なブーストまで対応します。",
+      "description_en": "Released in 1993, the HYPER Fuzz offers two aggressive fuzz modes plus a Gain Boost mode, covering saturated, heavy fuzz textures and powerful boosting.",
+      "lineage_ja": "BOSSコンパクト初の本格的なFuzz系モデルで、1997年により60年代的な方向へ振ったFZ-3へ交代しました。",
+      "lineage_en": "It was BOSS's first dedicated compact-format fuzz and was superseded in 1997 by the more 1960s-inspired FZ-3.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_fuzz_history"
+      ]
+    },
+    {
+      "model": "SD-2",
+      "description_ja": "1993年発売のDUAL OverDrive。CRUNCHとLEADというキャラクターの異なる2チャンネルを1台に持ち、設定や外部スイッチによってリズム用とリード用などを使い分けられる二面性が特徴です。",
+      "description_en": "Released in 1993, the DUAL OverDrive contains two distinct channels—CRUNCH and LEAD—allowing rhythm and lead drive sounds to be prepared and switched within one compact pedal.",
+      "lineage_ja": "SD-1の単一オーバードライブとは異なり、2種類のゲイン・キャラクターを切り替える方向へ発展させたモデルです。",
+      "lineage_en": "Unlike the single-voice SD-1, it develops the overdrive concept around two switchable gain characters.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_drive_history"
+      ]
+    },
+    {
+      "model": "HM-3",
+      "description_ja": "1993年発売のHYPER Metal。ハイゲインなメタル・ディストーションと強い低域／高域の音色調整を組み合わせたモデルで、HM-2とは異なる世代の重厚なメタル・サウンドを狙っています。",
+      "description_en": "Released in 1993, the HYPER Metal combines high-gain distortion with strong low/high tonal shaping, representing a later and differently voiced BOSS approach to heavy metal distortion than the HM-2.",
+      "lineage_ja": "HM-2の後に登場したメタル系モデルですが、MT-2と並行した独自路線で、直接の後継というより別キャラクターです。",
+      "lineage_en": "It followed the HM-2 chronologically but ran alongside the MT-2 as a distinct metal voice rather than a simple direct replacement.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "PS-3",
+      "description_ja": "1994年発売のDigital Pitch Shifter/Delay。PS-2のピッチ／ディレイ機能を拡張し、より広いピッチ変化、デチューン、複数のピッチ処理とディレイを組み合わせた実験的なサウンドまで扱える多機能モデルです。",
+      "description_en": "Released in 1994, the Digital Pitch Shifter/Delay expands the PS-2 concept with a wider pitch range, detuning, and combinations of multiple pitch treatments with delay for more experimental sounds.",
+      "lineage_ja": "PS-2の発展形で、後のPS-5／PS-6へ続くBOSSピッチ系の重要な中間世代です。",
+      "lineage_en": "An evolution of the PS-2 and an important intermediate step toward later BOSS pitch products such as the PS-5 and PS-6.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_pitch_history"
+      ]
+    },
+    {
+      "model": "RV-3",
+      "description_ja": "1994年発売のDigital Reverb/Delay。デジタル・リバーブとデジタル・ディレイを1台にまとめ、単独使用だけでなく両者を組み合わせた残響も作れるため、空間系をコンパクト1台で広くカバーできます。",
+      "description_en": "Released in 1994, the Digital Reverb/Delay combines both effects in a single compact pedal and can use them separately or together for a wide range of ambience.",
+      "lineage_ja": "BOSS公式資料ではRV-2の後継として位置づけられ、後のRV-5／RV-6ではリバーブ専用機として多彩なアルゴリズムへ発展しました。",
+      "lineage_en": "BOSS documentation positions it as the successor to the RV-2; later RV-5/RV-6 models returned to dedicated reverb with broader algorithms.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "ODB-3",
+      "description_ja": "BOSS伝統のオーバードライブをベース向けにチューニングしたモデル。低域の芯を保ちながらしっかり歪ませ、DRYとODのBALANCE、HIGH/LOW EQによって原音の太さと歪みの存在感を両立できます。",
+      "description_en": "A bass-tuned BOSS overdrive designed to retain low-end weight while adding substantial drive. A dry/OD balance and high/low EQ let the player combine bass fundamentals with an articulate distorted layer.",
+      "lineage_ja": "BOSSのベース専用ドライブ系を代表する長寿モデルです。",
+      "lineage_en": "It became one of BOSS's long-running dedicated bass-drive pedals.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_odb3_product"
+      ]
+    },
+    {
+      "model": "OD-2R",
+      "description_ja": "OD-2 TURBO OverDriveを発展させ、通常のオーバードライブとよりゲイン感の強いTURBOサウンドを外部フットスイッチから切り替えられるようにしたモデルです。",
+      "description_en": "An evolution of the OD-2 TURBO OverDrive that allows the normal overdrive and higher-gain TURBO character to be switched remotely with an external footswitch.",
+      "lineage_ja": "OD-2のリモート切替対応版という位置づけで、基本コンセプトを保ちながらライブでの操作性を高めました。",
+      "lineage_en": "Essentially a remote-switchable evolution of the OD-2, retaining its core concept while improving live usability.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "HR-2",
+      "description_ja": "1994年発売のHarmonist。入力音のキー／スケール関係を利用して音楽的なハーモニーを付加する、BOSSコンパクトのインテリジェント・ピッチ系モデルです。単純な固定ピッチ・シフトより旋律的なハモりを作ることを主眼にしています。",
+      "description_en": "Released in 1994, the Harmonist is an intelligent pitch pedal designed to add musically related harmony based on key/scale settings rather than only fixed-interval pitch shifting.",
+      "lineage_ja": "PS系で培ったデジタル・ピッチ技術をハーモニー生成へ展開し、後のPS-5／PS-6 Harmonistへつながりました。",
+      "lineage_en": "It applies BOSS digital pitch technology to harmony generation and leads conceptually toward the later PS-5 and PS-6 Harmonist pedals.",
+      "verification": "B",
+      "source_keys": [
+        "boss_40th",
+        "boss_manual_archive"
+      ]
+    },
+    {
+      "model": "LMB-3",
+      "description_ja": "ベース用のLimiter Enhancer。リミッターでピークを整えながら、ENHANCEで高域の倍音感やアタックの存在感を加えられ、ベースの音量安定と輪郭補強を1台で行えます。",
+      "description_en": "A bass Limiter Enhancer that controls peaks while an Enhance section adds upper-harmonic/attack presence, combining level management and articulation in one pedal.",
+      "lineage_ja": "LM-2Bのリミッター機能を、エンハンサー付きのより実用的なベース用ダイナミクス・ツールへ発展させたモデルです。",
+      "lineage_en": "It develops the LM-2B limiter idea into a more versatile bass dynamics tool by adding enhancement.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_lmb3_product"
+      ]
+    },
+    {
+      "model": "GEB-7",
+      "description_ja": "ベース用7バンド・グラフィックEQ。低い周波数までカバーするベース向けの帯域設定で、ローエンドの補正から中域のキャラクター作り、高域のアタック調整まで視覚的に扱えます。",
+      "description_en": "A seven-band graphic equalizer voiced for bass, reaching into low frequencies while also shaping mids and upper attack in an intuitive slider format.",
+      "lineage_ja": "GE-7Bの後継世代にあたるBOSSベースEQの長寿モデルです。",
+      "lineage_en": "It is the later long-running generation of BOSS bass graphic EQ following the GE-7B.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_geb7_product"
+      ]
+    },
+    {
+      "model": "CEB-3",
+      "description_ja": "ベース用Chorus。低域の芯を過度に揺らさずに上の帯域へコーラスを加える設計で、LOW FILTERによってコーラスをかける帯域を調整し、太さを保った広がりを作れます。",
+      "description_en": "A bass chorus designed to preserve the low-end foundation while adding modulation higher in the spectrum. Its Low Filter controls how much of the lower range is affected.",
+      "lineage_ja": "CE-2Bから続くBOSSベース・コーラス系の後継世代です。",
+      "lineage_en": "It continues the BOSS bass-chorus line after the CE-2B.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ceb3_product"
+      ]
+    },
+    {
+      "model": "DD-5",
+      "description_ja": "1995年登場のDigital Delay。最大約2秒のディレイ、複数のディレイ・モード、REVERSE、短いホールド／ループ的機能などを搭載し、BOSSコンパクト・ディレイを多機能化した世代です。",
+      "description_en": "Introduced in 1995, the Digital Delay offers roughly two seconds of delay time, multiple delay modes, Reverse, and a short Hold/loop-style function, marking a major step toward more feature-rich BOSS compact delays.",
+      "lineage_ja": "DD-3のシンプルなデジタル・ディレイから機能を大幅に拡張し、DD-6／DD-7へ続きました。",
+      "lineage_en": "It greatly expands on the simpler DD-3 format and leads into the DD-6 and DD-7 generations.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "BD-2",
+      "description_ja": "1995年発売のBlues Driver。真空管アンプを押し込んだような反応性を狙い、クリーンに近いブーストから荒さを含むオーバードライブまで、ピッキングやギターのボリュームに追従するダイナミックな歪みが特徴です。",
+      "description_en": "Released in 1995, the Blues Driver is designed for amp-like response, ranging from near-clean boost to gritty overdrive while reacting dynamically to picking strength and guitar volume.",
+      "lineage_ja": "BOSSの代表的オーバードライブ系のひとつとなり、2014年にBD-2W WAZA CRAFTが追加されました。",
+      "lineage_en": "It became a major BOSS overdrive line, later joined by the BD-2W WAZA CRAFT in 2014.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_bd2_product",
+        "boss_bd2w_product"
+      ]
+    },
+    {
+      "model": "XT-2",
+      "description_ja": "1996年発売のXtortion。鋭く攻撃的な高ゲイン・ディストーションを狙った短命モデルで、当時のモダンなハードロック／オルタナティブ系の音作りに向く強い輪郭と歪みを持ちます。",
+      "description_en": "Released in 1996, the Xtortion is a short-lived high-gain distortion aimed at sharp, aggressive modern tones, with a pronounced character suited to hard-rock and alternative styles of its era.",
+      "lineage_ja": "BOSSの歪み系の中でも独自色が強く、直接の同型後継を持たないモデルです。",
+      "lineage_en": "It is a distinctly voiced BOSS distortion without a direct like-for-like successor.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_px1_archive"
+      ]
+    },
+    {
+      "model": "PW-2",
+      "description_ja": "1996年発売のPower Driver。通常のTONEだけでなく低域／中域の力感を作る専用コントロールを持ち、太く押し出しの強いオーバードライブ～ディストーションを狙ったモデルです。",
+      "description_en": "Released in 1996, the Power Driver uses dedicated tone-shaping controls in addition to gain to create a thick, forceful overdrive-to-distortion sound with strong low/mid impact.",
+      "lineage_ja": "短期間で終了した独立色の強いドライブで、直接の後継機はありません。",
+      "lineage_en": "A short-lived and distinctive drive design with no direct successor.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_px1_archive"
+      ]
+    },
+    {
+      "model": "SYB-3",
+      "description_ja": "1996年登場のBass Synthesizer。ベースの入力音を追従してシンセサイザー波形へ変換し、複数の波形／フィルター系サウンドをコンパクト・ペダルで演奏できるようにした初期のベース・シンセです。",
+      "description_en": "Introduced in 1996, the Bass Synthesizer tracks the bass input and transforms it into synthesized wave/filter sounds, bringing multiple synth voices to a compact pedal format.",
+      "lineage_ja": "後継のSYB-5ではDSP処理や音色数、外部コントロールが拡張されました。",
+      "lineage_en": "The later SYB-5 expanded the concept with updated DSP, more sounds, and external control.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_syb3_product"
+      ]
+    },
+    {
+      "model": "FZ-3",
+      "description_ja": "1997年発売のFuzz。FZ-2の多機能・高ゲイン路線から方向を変え、1960年代のクラシックなファズを意識した、よりシンプルでヴィンテージ寄りの荒々しい歪みを狙ったモデルです。",
+      "description_en": "Released in 1997, the Fuzz changes direction from the more feature-heavy FZ-2, aiming instead for a simpler, more vintage 1960s-style fuzz character.",
+      "lineage_ja": "BOSS公式のファズ史ではFZ-2を引き継ぐモデルとして紹介され、後のFZ-5ではCOSMで複数のヴィンテージ・ファズを再現する方向へ進みました。",
+      "lineage_en": "BOSS's fuzz history presents it as the model that followed the FZ-2; the later FZ-5 moved toward modeling several vintage fuzz types with COSM.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_fuzz_history"
+      ]
+    },
+    {
+      "model": "AC-2",
+      "description_ja": "1997年発売のAcoustic Simulator。エレクトリック・ギターの信号を処理し、アコースティック・ギターらしいボディ感や高域の響きを疑似的に作るためのコンパクト・ペダルです。",
+      "description_en": "Released in 1997, the Acoustic Simulator processes an electric-guitar signal to approximate the body resonance and brighter acoustic character of an acoustic guitar.",
+      "lineage_ja": "2006年のAC-3で音色バリエーションやコントロール、専用LINE OUTなどが強化されました。",
+      "lineage_en": "The 2006 AC-3 expanded the concept with more voicings, control, and a dedicated line output.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ac2_product"
+      ]
+    },
+    {
+      "model": "TR-2",
+      "description_ja": "1997年登場のTremolo。ビンテージ・アンプ内蔵トレモロを思わせる周期的な音量変化を作り、WAVEコントロールで滑らかな揺れから角の立った断続的な効果まで変化させられます。",
+      "description_en": "Introduced in 1997, the Tremolo creates cyclical volume modulation reminiscent of vintage amp tremolo, while the WAVE control moves from smooth pulses to sharper, more chopped effects.",
+      "lineage_ja": "PN-2のステレオPan機能を引き継ぐモデルではなく、トレモロ機能に特化した長寿モデルです。",
+      "lineage_en": "It is not a direct continuation of the PN-2's stereo-pan concept; instead it is a dedicated, long-running tremolo pedal.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_tr2_product"
+      ]
+    },
+    {
+      "model": "OD-3",
+      "description_ja": "1997年発売のOverDrive。BOSS独自のデュアル・ステージ・オーバードライブ回路により、広いダイナミック・レンジと厚い低域を保ちつつ、ピッキングに追従する自然な歪みを狙ったモデルです。",
+      "description_en": "Released in 1997, the OverDrive uses BOSS's dual-stage overdrive circuit to deliver a wide dynamic range, solid low end, and natural drive that responds to picking.",
+      "lineage_ja": "OD-1／OD-2などのBOSSオーバードライブ系とは異なる回路アプローチで、よりフルレンジな世代として位置づけられます。",
+      "lineage_en": "It represents a more full-range generation of BOSS overdrive using a different circuit approach from earlier OD-1/OD-2 designs.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_od3_product"
+      ]
+    },
+    {
+      "model": "TU-2",
+      "description_ja": "1998年発売のChromatic Tuner。BOSSコンパクト筐体にチューナーを収め、視認性の高いメーター表示、ミュート・チューニング、他ペダルへの電源供給などを組み合わせ、ペダルボードの定番チューナーとなったモデルです。",
+      "description_en": "Released in 1998, the Chromatic Tuner put a practical tuner into the BOSS compact format with clear metering, silent tuning, and power distribution, becoming a pedalboard standard.",
+      "lineage_ja": "2009年のTU-3が基本コンセプトを受け継ぎ、表示の視認性などを強化しました。",
+      "lineage_en": "The TU-3 succeeded it in 2009, retaining the core concept while improving display visibility and related functions.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_tuner_history"
+      ]
+    },
+    {
+      "model": "PS-5",
+      "description_ja": "1999年発売のSUPER Shifter。ピッチ・シフト、インテリジェント・ハーモニー、デチューン、トレモロ・アーム風の連続ピッチ変化などを1台にまとめた多機能ピッチ・エフェクトです。",
+      "description_en": "Released in 1999, the SUPER Shifter combines pitch shifting, intelligent harmony, detune, and expression-style pitch movement such as tremolo-arm effects in one compact pedal.",
+      "lineage_ja": "PS-2／PS-3で発展したピッチ技術をより演奏向けに整理し、2010年のPS-6 Harmonistへ引き継がれました。",
+      "lineage_en": "It refines the pitch technology developed through the PS-2/PS-3 into a more performance-oriented pedal, later succeeded by the PS-6 Harmonist.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_pitch_history",
+        "boss_ps6_product"
+      ]
+    },
+    {
+      "model": "PH-3",
+      "description_ja": "2000年発売のPhase Shifter。4／8／10／12 STAGEに加え、上昇感・下降感が続くRISE/FALLや段階的に変化するSTEPなど7種類のモードを持ち、従来のフェイザーを大幅に拡張したモデルです。",
+      "description_en": "Released in 2000, the Phase Shifter offers seven modes including 4/8/10/12-stage phasing, continuous Rise/Fall effects, and stepped modulation, greatly expanding the traditional phaser format.",
+      "lineage_ja": "BOSS公式はPH-1→PH-1R→PH-2のサウンドを受け継ぐ発展形としてPH-3を位置づけています。",
+      "lineage_en": "BOSS explicitly presents the PH-3 as an evolution that inherits the lineage of the PH-1, PH-1R, and PH-2.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ph3_product"
+      ]
+    },
+    {
+      "model": "AW-3",
+      "description_ja": "2000年発売のDynamic Wah。ピッキングに追従するオート・ワウに加え、母音のような音色変化を作るHUMANIZER、周期ワウ、外部エクスプレッション・ペダルによるワウ操作など多彩なフィルター効果を備えます。",
+      "description_en": "Released in 2000, the Dynamic Wah combines touch-responsive auto-wah with Humanizer vowel-like filtering, periodic wah movement, and expression-pedal wah control.",
+      "lineage_ja": "AW-2のオート・ワウ機能を大幅に拡張した後継世代です。",
+      "lineage_en": "It is the later generation that greatly expands the AW-2 auto-wah concept.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_aw3_product"
+      ]
+    },
+    {
+      "model": "MD-2",
+      "description_ja": "2001年発売のMega Distortion。深いハイゲインと強化された低域を特徴とし、ダウン・チューニングや重いリフでも迫力を保つモダンなディストーションを狙ったモデルです。",
+      "description_en": "Released in 2001, the Mega Distortion is built around deep high gain and reinforced low end, aimed at maintaining weight and impact with down-tuned guitars and heavy riffing.",
+      "lineage_ja": "MT-2とはEQ構成やキャラクターが異なる、2000年代BOSSのモダン・ハイゲイン系の一角です。",
+      "lineage_en": "It is a distinct 2000s BOSS modern high-gain design rather than a simple variant of the MT-2.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_md2_product"
+      ]
+    },
+    {
+      "model": "BF-3",
+      "description_ja": "2002年発売のFlanger。BF-2の基本的なフランジングを発展させ、ULTRAやGATE/PANなどのモード、ステレオ出力、ギター／ベース別入力を備え、より過激な効果から実用的な揺れまで対応します。",
+      "description_en": "Released in 2002, the Flanger expands the BF-2 concept with modes such as Ultra and Gate/Pan, stereo output, and separate guitar/bass inputs for everything from conventional sweep to more extreme modulation.",
+      "lineage_ja": "長寿だったBF-2の後継世代で、BF-2Bのベース用途も1台に統合する方向へ進化しました。",
+      "lineage_en": "It succeeds the long-running BF-2 generation and also folds bass-oriented use, previously served by the BF-2B, into one pedal.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_bf3_product"
+      ]
+    },
+    {
+      "model": "RV-5",
+      "description_ja": "2002年発売のDigital Reverb。Room、Hall、Plate、Springに加え、GateやModulateなど6種類のリバーブを搭載し、ステレオ対応で自然な残響から個性的な空間表現まで扱えるモデルです。",
+      "description_en": "Released in 2002, the Digital Reverb provides six reverb types including Room, Hall, Plate, Spring, Gate, and Modulate, with stereo operation for both natural ambience and more colored spatial effects.",
+      "lineage_ja": "RV-3の複合Reverb/Delayから再びリバーブ専用へ戻り、2015年のRV-6へ発展しました。",
+      "lineage_en": "It returned from the RV-3's combined reverb/delay format to a dedicated reverb pedal, later succeeded by the RV-6 in 2015.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_rv5_product"
+      ]
+    },
+    {
+      "model": "DD-6",
+      "description_ja": "2002年発売のDigital Delay。最大約5.2秒のディレイ、REVERSE、HOLD、ステレオ処理に加え、本体ペダルによるタップ・テンポ操作を備え、DD-5からライブ操作性と機能をさらに拡張しました。",
+      "description_en": "Released in 2002, the Digital Delay offers up to about 5.2 seconds of delay, Reverse, Hold, stereo operation, and onboard tap-tempo control, expanding both function and live usability beyond the DD-5.",
+      "lineage_ja": "DD-5の多機能路線を受け継ぎ、後のDD-7／DD-8へ続く世代です。",
+      "lineage_en": "It continues the feature-rich DD-5 direction and leads into later DD-7/DD-8 generations.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "OC-3",
+      "description_ja": "2003年発売のSUPER Octave。従来のオクターブ・ダウンに加え、コードにも追従できるポリフォニック・モード、歪みを組み合わせたDRIVEモード、ベース専用入力などを備えたデジタル・オクターバーです。",
+      "description_en": "Released in 2003, the SUPER Octave adds a polyphonic mode capable of handling chords, a Drive mode combining octave and distortion, and a dedicated bass input to the traditional octave-down concept.",
+      "lineage_ja": "長寿だったOC-2をデジタル／ポリフォニック方向へ大きく拡張した後継世代です。",
+      "lineage_en": "It is the later generation that greatly expands the long-running OC-2 concept into digital and polyphonic processing.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_pitch_history",
+        "boss_oc3_product"
+      ]
+    },
+    {
+      "model": "SYB-5",
+      "description_ja": "2004年発売のBass Synthesizer。DSP処理による11種類のシンセ・サウンドを搭載し、フィルターやディケイを調整できるほか、エクスプレッション・ペダルでリアルタイムにパラメーターを操作できます。",
+      "description_en": "Released in 2004, the Bass Synthesizer uses DSP to provide 11 synth sounds, with filter/decay shaping and real-time expression-pedal control.",
+      "lineage_ja": "SYB-3の後継としてトラッキングや音色バリエーション、演奏時のコントロール性を強化したモデルです。",
+      "lineage_en": "It succeeds the SYB-3 with improved sound variety, tracking, and performance control.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_syb5_product"
+      ]
+    },
+    {
+      "model": "AC-3",
+      "description_ja": "2006年発売のAcoustic Simulator。エレクトリック・ギターからアコースティックらしい共鳴と高域の響きを作り、複数のボディ・タイプ、BODY/TOP調整、内蔵リバーブ、PA向けLINE OUTを備えます。",
+      "description_en": "Released in 2006, the Acoustic Simulator creates acoustic-style resonance and top-end character from an electric guitar, with multiple body types, Body/Top controls, built-in reverb, and a dedicated Line Out.",
+      "lineage_ja": "AC-2の後継世代で、音色と実用機能の両方を拡張しました。",
+      "lineage_en": "It succeeds the AC-2, expanding both the tonal range and practical connectivity.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ac3_product"
+      ]
+    },
+    {
+      "model": "RC-2",
+      "description_ja": "2006年発売のLoop Station。BOSSコンパクト筐体に録音／オーバーダブ／再生をまとめ、複数のフレーズ保存やリズム・ガイドを備えた、初期のコンパクト型ルーパーです。",
+      "description_en": "Released in 2006, the Loop Station brings recording, overdubbing, and playback into the BOSS compact format, with phrase memories and rhythm-guide functions for practical looping.",
+      "lineage_ja": "コンパクトLoop Station系はRC-2からRC-3、RC-1などへ展開していきました。",
+      "lineage_en": "The compact Loop Station family developed from the RC-2 into later models such as the RC-3 and RC-1.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_rc2_product"
+      ]
+    },
+    {
+      "model": "FDR-1",
+      "description_ja": "2007年登場のFender Legend Seriesモデル。COSM技術で1965年型Fender Deluxe Reverbのアンプ・サウンドをモデリングし、アンプのトーン／ゲイン感に加えてリバーブやビブラートの雰囲気までコンパクト・ペダルで再現することを狙いました。",
+      "description_en": "Introduced in 2007 as part of the Fender Legend Series, the FDR-1 uses COSM to model the 1965 Fender Deluxe Reverb amp character, including its tone/gain behavior and ambience associated with reverb/vibrato.",
+      "lineage_ja": "FBM-1、後のFRV-1とともにBOSSとFenderの公式コラボレーションによるLegend Seriesを構成しました。",
+      "lineage_en": "Together with the FBM-1 and later FRV-1, it forms BOSS's officially licensed Fender Legend Series.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_fdr1_product",
+        "boss_fender_legend"
+      ]
+    },
+    {
+      "model": "FBM-1",
+      "description_ja": "2007年登場のFender Legend Seriesモデル。COSMで1959年型Fender Bassmanの太く透明感のあるアンプ・サウンドをモデリングし、オリジナルを意識したEQやBRIGHT INを備えます。",
+      "description_en": "Introduced in 2007 as part of the Fender Legend Series, the FBM-1 uses COSM to model the thick, clear character of a 1959 Fender Bassman, with amp-style EQ and a Bright input.",
+      "lineage_ja": "FDR-1、FRV-1と並ぶBOSS/Fender公式コラボレーションの一員です。",
+      "lineage_en": "It is part of the official BOSS/Fender collaboration alongside the FDR-1 and FRV-1.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_fbm1_product",
+        "boss_fender_legend"
+      ]
+    },
+    {
+      "model": "DN-2",
+      "description_ja": "2007年発売のDyna Drive。ピッキングの強弱やギター側のボリュームに応じて、クリーン～クランチ～ハイゲインまで歪み量と音色が大きく変化する、ダイナミクス重視のオーバードライブです。",
+      "description_en": "Released in 2007, the Dyna Drive changes its amount and character of overdrive dramatically with picking strength and guitar-volume settings, ranging from clean/crunch to higher gain.",
+      "lineage_ja": "従来の固定的なゲイン設定よりも演奏ニュアンスで歪みを動かすことを前面に出した独自モデルで、直接の後継はありません。",
+      "lineage_en": "It is a distinctive drive design centered on performance dynamics rather than a fixed gain character and has no direct successor.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_dn2_product"
+      ]
+    },
+    {
+      "model": "ML-2",
+      "description_ja": "2007年発売のMetal Core。非常に深いゲインと強い低域を持ち、ダウン・チューニングしたリフでも音像を保ちながら重く鋭いメタル・サウンドを作ることを狙ったモデルです。",
+      "description_en": "Released in 2007, the Metal Core is built for extremely high gain and powerful lows, maintaining definition for heavy, down-tuned metal riffing.",
+      "lineage_ja": "MT-2よりもシンプルなEQ構成で、より直球のモダン・メタル向けキャラクターを持つ別系統のモデルです。",
+      "lineage_en": "With a simpler EQ structure than the MT-2, it is a separate, more direct modern-metal voice.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ml2_product"
+      ]
+    },
+    {
+      "model": "FZ-5",
+      "description_ja": "2007年発売のFuzz。COSMモデリングにより、Fuzz Face、Maestro FZ-1A、Octavia系の代表的なヴィンテージ・ファズのキャラクターを3モードで再現し、BOOST域では原型以上のゲイン感も得られます。",
+      "description_en": "Released in 2007, the Fuzz uses COSM modeling to reproduce three classic vintage-fuzz characters inspired by the Fuzz Face, Maestro FZ-1A, and Octavia families, with additional gain available in the Boost range.",
+      "lineage_ja": "FZ-2／FZ-3のアナログ的な専用回路路線から、複数の歴史的ファズをデジタル・モデリングする方向へ転換した世代です。",
+      "lineage_en": "It shifts the BOSS fuzz line from the dedicated analog-style FZ-2/FZ-3 designs toward digital modeling of multiple historic fuzz types.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_fz5_product",
+        "boss_fuzz_history"
+      ]
+    },
+    {
+      "model": "DD-7",
+      "description_ja": "2008年発売のDigital Delay。最大6.4秒のディレイに加え、ANALOG、MODULATE、REVERSEなどのモード、最大40秒のHOLD録音、外部タップ／エクスプレッション対応を備えた多機能モデルです。",
+      "description_en": "Released in 2008, the Digital Delay offers up to 6.4 seconds of delay, modes such as Analog, Modulate, and Reverse, a Hold recorder of up to roughly 40 seconds, plus external tap/expression control.",
+      "lineage_ja": "DD-6の後継世代として機能と録音時間を拡張し、2019年のDD-8へ続きますが、本サイトの対象は2018年発売モデルまでです。",
+      "lineage_en": "It follows the DD-6 with expanded functions and looping time; the later DD-8 falls outside this site's release-year scope.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_dd7_product",
+        "boss_delay_history"
+      ]
+    },
+    {
+      "model": "FRV-1",
+      "description_ja": "2009年発売のFender Reverb。COSMで1963年型Fender Reverbの真空管＋スプリング・リバーブ特有の華やかで温かい響きをモデリングし、オリジナル同様のシンプルな3ノブ操作で再現します。",
+      "description_en": "Released in 2009, the Fender Reverb uses COSM to model the bright, warm tube-and-spring character of the 1963 Fender Reverb unit, retaining a simple three-control layout.",
+      "lineage_ja": "FBM-1／FDR-1に加わったFender Legend Seriesの3機種目で、BOSS/Fender公式コラボレーションの空間系モデルです。",
+      "lineage_en": "It joined the FBM-1 and FDR-1 as the third Fender Legend Series pedal and is the ambience-focused member of the official BOSS/Fender collaboration.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_frv1_product",
+        "boss_fender_legend"
+      ]
+    },
+    {
+      "model": "TU-3",
+      "description_ja": "2009年発売のChromatic Tuner。TU-2のペダルボード定番コンセプトを継承し、21セグメントLEDメーター、高輝度モード、Accu-Pitch／ストリーム表示などで暗いステージでも視認しやすくしたモデルです。",
+      "description_en": "Released in 2009, the Chromatic Tuner succeeds the TU-2 pedalboard concept with a 21-segment LED meter, high-brightness mode, and Accu-Pitch/stream-style displays for improved stage visibility.",
+      "lineage_ja": "TU-2の直接的な後継世代で、2016年には高品位バッファーを加えたTU-3Wも登場しました。",
+      "lineage_en": "It directly succeeds the TU-2 generation, and the TU-3W added a premium buffer-oriented WAZA version in 2016.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_tu3_product",
+        "boss_tu3w_product"
+      ]
+    },
+    {
+      "model": "ST-2",
+      "description_ja": "2010年発売のPower Stack。コンパクト・ペダルで大型スタック・アンプのような押し出しと歪みを狙い、SOUNDノブを中心にクランチからハイゲインまでアンプ的なキャラクターを連続的に作れるモデルです。",
+      "description_en": "Released in 2010, the Power Stack aims to deliver the punch and drive of a large stack amplifier in compact form, using its Sound control to move from crunch to high-gain amp-like characters.",
+      "lineage_ja": "単純なディストーションというより、アンプ・キャラクターを含めて作るBOSSのアンプ・モデリング系ドライブです。",
+      "lineage_en": "Rather than being only a conventional distortion, it is a BOSS amp-character drive design that shapes the feel and response of a stack-style amplifier.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_st2_product"
+      ]
+    },
+    {
+      "model": "PS-6",
+      "description_ja": "2010年発売のHarmonist。PS-5の後継として、最大3声のハーモニー、ピッチ・シフト、デチューン、S-BENDなどを搭載し、単音のハモりから大きなピッチ変化まで演奏中に扱いやすくしたモデルです。",
+      "description_en": "Released in 2010, the Harmonist succeeds the PS-5 with up to three-part harmony, pitch shifting, detune, and S-BEND effects, making both intelligent harmony and dramatic pitch movement easy to perform.",
+      "lineage_ja": "PS-5の直接的な後継世代で、PS系とHR-2系で培ったピッチ／ハーモニー機能を統合したモデルです。",
+      "lineage_en": "It directly succeeds the PS-5 generation, consolidating the pitch and harmony ideas developed through the PS and HR lines.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ps6_product",
+        "boss_pitch_history"
+      ]
+    },
+    {
+      "model": "RC-3",
+      "description_ja": "2011年発売のLoop Station。ステレオ録音、最大約3時間の録音時間、99フレーズ・メモリー、USB接続やリズム・ガイドを備え、コンパクト筐体のルーパーを大容量化した世代です。",
+      "description_en": "Released in 2011, the Loop Station adds stereo looping, roughly three hours of recording, 99 phrase memories, USB connectivity, and rhythm guide functions to the compact format.",
+      "lineage_ja": "RC-2の高機能後継世代で、後にシンプル操作のRC-1や新世代RC-5などへラインが分化しました。",
+      "lineage_en": "It is a more capable successor generation to the RC-2; the family later diversified into the simpler RC-1 and newer RC-5.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_rc3_product"
+      ]
+    },
+    {
+      "model": "BC-2",
+      "description_ja": "2011年発売のCombo Drive。英国系コンボ・アンプを思わせるレスポンスと歪みをコンパクト・ペダルで狙い、SOUNDノブとBASS/TREBLEによってクリーン寄りからクランチ、強いドライブまで連続的に作れます。",
+      "description_en": "Released in 2011, the Combo Drive aims for the response and drive character of a classic British-style combo amp, using Sound plus Bass/Treble controls to move from cleaner tones through crunch and stronger drive.",
+      "lineage_ja": "ST-2と同時代の、アンプ・キャラクターそのものをペダル化するBOSSのドライブ／モデリング系モデルです。",
+      "lineage_en": "It belongs to the same era as the ST-2, when BOSS was translating amplifier character and response into compact drive pedals.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_bc2_product"
+      ]
+    },
+    {
+      "model": "FB-2",
+      "description_ja": "2011年発売のFeedbacker/Booster。通常のブースターとして音量や中域の押し出しを調整できるほか、ペダルを踏み続けることでアンプの大音量フィードバックのような持続音を電子的に作れるユニークなモデルです。",
+      "description_en": "Released in 2011, the Feedbacker/Booster works as a flexible boost and can also generate a sustained, amp-like feedback effect electronically by holding the pedal down.",
+      "lineage_ja": "DF-2以来の「フィードバックをペダル機能として作る」発想を、ブースターと組み合わせて現代化したモデルと見なせます。",
+      "lineage_en": "It revisits BOSS's earlier idea of pedal-generated feedback, seen in the DF-2, but combines it with a modern booster function.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_fb2_product"
+      ]
+    },
+    {
+      "model": "DA-2",
+      "description_ja": "2013年発売のAdaptive Distortion。BOSSのMDP技術を初期に採用した歪みペダルで、演奏する音域や入力に応じて処理を変え、ハイゲインでも低音弦と高音弦の分離感や輪郭を保つことを狙いました。",
+      "description_en": "Released in 2013, the Adaptive Distortion is an early BOSS drive pedal using MDP, adapting its processing to the played range and input so that string separation and definition remain clear even at high gain.",
+      "lineage_ja": "短命モデルでしたが、音域ごとに最適化するMDPの考え方はDS-1XやOD-1Xなどへ展開しました。",
+      "lineage_en": "Although short-lived, its range-adaptive MDP concept was developed further in pedals such as the DS-1X and OD-1X.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_da2_product",
+        "boss_mdp"
+      ]
+    },
+    {
+      "model": "MO-2",
+      "description_ja": "2013年発売のMulti Overtone。MDPで入力音を解析して新たな倍音を生成し、原音に12弦ギターやオルガンを思わせるような厚みと広がりを加える独創的なモジュレーション系ペダルです。",
+      "description_en": "Released in 2013, the Multi Overtone uses MDP to analyze the input and create new overtones, adding wide, layered textures that can suggest 12-string or organ-like colors.",
+      "lineage_ja": "既存のコーラスやピッチ・シフターとは異なる、MDP世代ならではの独立した倍音生成エフェクトです。",
+      "lineage_en": "It is a distinct MDP-era overtone effect rather than a conventional chorus or pitch shifter.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_mo2_product",
+        "boss_mdp"
+      ]
+    },
+    {
+      "model": "TE-2",
+      "description_ja": "2013年発売のTera Echo。MDPによって演奏内容に応じた複雑な反射音と残響を作り、一般的なディレイやリバーブのどちらにも収まらない、立体的で動きのある空間効果を生み出します。",
+      "description_en": "Released in 2013, the Tera Echo uses MDP to create complex, performance-responsive reflections and ambience, producing a spacious moving effect that is not simply a conventional delay or reverb.",
+      "lineage_ja": "MDPを象徴する初期コンパクト・モデルのひとつで、従来の空間系とは別の独自カテゴリーを狙った製品です。",
+      "lineage_en": "It is one of the early compact pedals that showcased MDP and intentionally occupies a space outside conventional delay/reverb categories.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_te2_product",
+        "boss_mdp"
+      ]
+    },
+    {
+      "model": "DS-1X",
+      "description_ja": "2014年発売のDistortion。MDPによって音域や演奏内容に応じて歪み処理を最適化し、クランチからハイゲインまで、深く歪ませても弦ごとの分離感とピッキングへの追従性を保つことを狙ったデジタル・ディストーションです。",
+      "description_en": "Released in 2014, the Distortion uses MDP to optimize processing for register and performance, retaining string separation and picking response from crunch through high gain.",
+      "lineage_ja": "名称はDS-1系ですが、DS-1の復刻／後継回路ではなく、MDPによる別設計のXシリーズ・モデルです。",
+      "lineage_en": "Despite the DS-1-derived name, it is not a circuit reissue or direct replacement; it is a separate MDP-based X-series design.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ds1x_product",
+        "boss_mdp"
+      ]
+    },
+    {
+      "model": "OD-1X",
+      "description_ja": "2014年発売のOverDrive。MDPによって各音域を適切に処理し、コードでも音の分離を保ちながら、低域の太さと高域の抜けを両立するワイドレンジなデジタル・オーバードライブです。",
+      "description_en": "Released in 2014, the OverDrive uses MDP to process different frequency regions appropriately, preserving chord definition while combining solid lows with clear upper-range presence.",
+      "lineage_ja": "OD-1の名称を受け継ぎますが、OD-1の回路復刻ではなく、MDPを使うXシリーズとして独立した設計です。",
+      "lineage_en": "It carries the OD-1 name heritage but is not an OD-1 circuit recreation; it is a separate MDP-based X-series design.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_od1x_product",
+        "boss_mdp"
+      ]
+    },
+    {
+      "model": "SD-1W",
+      "description_ja": "2014年登場のWAZA CRAFT版SUPER OverDrive。フルアナログ／ディスクリート回路でSD-1の中域に張りのある歪みを磨き上げ、STANDARDと、よりワイドレンジで力強いCUSTOMの2モードを切り替えられます。",
+      "description_en": "Introduced in 2014, the WAZA CRAFT SUPER OverDrive refines the SD-1 with a fully analog discrete design and adds Standard plus a more powerful, wider-range Custom mode.",
+      "lineage_ja": "SD-1を置き換える後継ではなく、オリジナルを残したまま上位のスペシャル・エディションとして追加されたモデルです。",
+      "lineage_en": "It is not a replacement for the SD-1, but a premium special edition offered alongside the original.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_sd1w_product",
+        "boss_waza"
+      ]
+    },
+    {
+      "model": "BD-2W",
+      "description_ja": "2014年登場のWAZA CRAFT版Blues Driver。BD-2のアンプライクでダイナミックな歪みをフルアナログ回路で磨き、STANDARDに加えて中域の厚みとサステインを強めたCUSTOMモードを備えます。",
+      "description_en": "Introduced in 2014, the WAZA CRAFT Blues Driver refines the BD-2's dynamic amp-like drive with a fully analog design and adds a Custom mode with fuller mids and increased sustain.",
+      "lineage_ja": "BD-2を置き換えるのではなく、オリジナルと併売される上位仕様です。",
+      "lineage_en": "It is a premium version offered alongside, rather than replacing, the original BD-2.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_bd2w_product",
+        "boss_waza"
+      ]
+    },
+    {
+      "model": "DM-2W",
+      "description_ja": "WAZA CRAFTとして復活したフルアナログBBDディレイ。STANDARDではオリジナルDM-2の20～300msの温かいディレイを再現し、CUSTOMではよりクリアな音質と最大800msまでの長いディレイ・タイムを追加します。",
+      "description_en": "A WAZA CRAFT revival of the full-analog BBD delay. Standard recreates the original DM-2's warm 20–300 ms range, while Custom extends the delay to up to 800 ms with a clearer character.",
+      "lineage_ja": "1980年代のDM-2を現代仕様へ拡張して復活させたモデルで、単なる後継というより公式リイマジニングに近い位置づけです。",
+      "lineage_en": "It is a modern expanded revival of the 1980s DM-2 rather than a conventional next-generation successor.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_dm2w_product",
+        "boss_waza"
+      ]
+    },
+    {
+      "model": "RC-1",
+      "description_ja": "2014年発売のLoop Station。大型の円形インジケーターで録音／再生／オーバーダブの状態とループ位置を直感的に確認でき、ステレオ入出力を備えたシンプル操作重視のルーパーです。",
+      "description_en": "Released in 2014, the Loop Station emphasizes simple operation, using a large circular indicator to show recording/playback/overdub status and loop position, with stereo I/O.",
+      "lineage_ja": "RC-3のような多数のメモリー機能とは方向を分け、基本的なループ演奏を分かりやすく行うエントリー・モデルとして位置づけられます。",
+      "lineage_en": "It takes a different path from memory-heavy models such as the RC-3, focusing on straightforward entry-level looping.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_rc1_product"
+      ]
+    },
+    {
+      "model": "BB-1X",
+      "description_ja": "2015年発売のBass Driver。ベース本来の低域とニュアンスを保ちながら、プリアンプ／ドライブ的な太さや存在感を加えるモデルで、BLEND、LOW/HIGH EQ、LINE OUTを備え、アンプ前にもPA直結にも使えます。",
+      "description_en": "Released in 2015, the Bass Driver adds preamp/drive weight and presence while retaining the instrument's low end and nuance, with Blend, Low/High EQ, and a Line Out for amp or direct use.",
+      "lineage_ja": "単なるベース・オーバードライブではなく、音作りと出力まで含めたベース用プリアンプ／ドライバーとして設計されています。",
+      "lineage_en": "It is designed as a bass preamp/driver rather than simply another bass overdrive.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_bb1x_product"
+      ]
+    },
+    {
+      "model": "RV-6",
+      "description_ja": "2015年発売のReverb。Room、Hall、Plate、Springなどの基本残響に加え、Shimmer、Dynamic、+Delayなど8種類のモードを備え、ステレオ入出力や外部エクスプレッションにも対応した多機能リバーブです。",
+      "description_en": "Released in 2015, the Reverb provides eight modes including Room, Hall, Plate, Spring, Shimmer, Dynamic, and +Delay, with stereo I/O and external-expression support.",
+      "lineage_ja": "RV-5の後継世代で、自然な残響から現代的なアンビエント表現まで範囲を拡張しました。",
+      "lineage_en": "It succeeds the RV-5 generation and broadens the range from natural ambience to modern ambient textures.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_rv6_product"
+      ]
+    },
+    {
+      "model": "BC-1X",
+      "description_ja": "2016年発売のBass Comp。MDPでベース信号を多次元的に処理し、音域や弾き方に応じて圧縮を最適化することで、低域の芯や演奏ニュアンスを失いにくい自然なコンプレッションを狙っています。",
+      "description_en": "Released in 2016, the Bass Comp uses MDP to optimize compression according to register and playing dynamics, aiming for natural control without sacrificing low-end body or articulation.",
+      "lineage_ja": "CS系の単純なギター・コンプレッサーとは別に、ベース専用のMDPダイナミクスとして設計されたモデルです。",
+      "lineage_en": "Rather than being a simple bass version of the CS line, it is a dedicated MDP bass-dynamics design.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_bc1x_product",
+        "boss_mdp"
+      ]
+    },
+    {
+      "model": "VO-1",
+      "description_ja": "2016年発売のVocoder。ギター／ベースの演奏をマイク入力した声と組み合わせ、トーク・ボックス的な発音感や電子的なボコーダー・サウンドを作れる、BOSSコンパクトでは非常に珍しい音声合成系モデルです。",
+      "description_en": "Released in 2016, the Vocoder combines guitar/bass playing with a microphone input to create speech-like, talk-box-style and electronic vocoder textures, making it an unusual voice-synthesis pedal in the BOSS compact line.",
+      "lineage_ja": "直接の前身・後継を持たない独自カテゴリーのコンパクト・ペダルです。",
+      "lineage_en": "It occupies a distinctive category with no straightforward predecessor or successor in the compact line.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_vo1_product"
+      ]
+    },
+    {
+      "model": "VB-2W",
+      "description_ja": "2016年登場のWAZA CRAFT Vibrato。希少な1982年のVB-2のBBDによる自然なピッチ揺れを再現するSTANDARDに加え、よりモダンで広い揺れを得られるCUSTOMモードを備えます。",
+      "description_en": "Introduced in 2016, the WAZA CRAFT Vibrato recreates the natural BBD pitch modulation of the rare 1982 VB-2 in Standard mode and adds a wider, more modern Custom voice.",
+      "lineage_ja": "VB-2を現代に復活・拡張した公式WAZA版です。",
+      "lineage_en": "It is BOSS's official WAZA revival and expansion of the original VB-2.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_vb2w_product",
+        "boss_waza"
+      ]
+    },
+    {
+      "model": "TU-3W",
+      "description_ja": "2016年登場のWAZA CRAFT Chromatic Tuner。TU-3の高精度チューニング機能を基礎に、信号経路とバッファーを高品位化し、バッファード／トゥルー・バイパスを選択できるプレミアム仕様です。",
+      "description_en": "Introduced in 2016, the WAZA CRAFT Chromatic Tuner builds on the TU-3 with a premium signal path and buffer plus selectable buffered or true-bypass operation.",
+      "lineage_ja": "TU-3を置き換える後継ではなく、音質面まで重視した上位仕様です。",
+      "lineage_en": "It is a premium alternative rather than a replacement for the standard TU-3.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_tu3w_product",
+        "boss_waza"
+      ]
+    },
+    {
+      "model": "CE-2W",
+      "description_ja": "2016年登場のWAZA CRAFT Chorus。STANDARDでCE-2の爽やかなコーラスを再現し、CE-1モードではCE-1のChorus／Vibratoキャラクターも選べるため、BOSS初期コーラスの代表的サウンドを1台にまとめています。",
+      "description_en": "Introduced in 2016, the WAZA CRAFT Chorus recreates the CE-2 character in Standard mode and also provides CE-1 Chorus and Vibrato voices, bringing key early BOSS chorus sounds into one pedal.",
+      "lineage_ja": "CE-1／CE-2の歴史的サウンドを現代仕様で再構成したWAZAモデルです。",
+      "lineage_en": "It is a WAZA reinterpretation of the historic CE-1/CE-2 chorus lineage.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ce2w_product",
+        "boss_waza"
+      ]
+    },
+    {
+      "model": "AD-2",
+      "description_ja": "2016年発売のAcoustic Preamp。アコースティック・ギターのピックアップ音に自然な胴鳴り感を加えるACOUSTIC RESONANCE、ノッチ・フィルター、アンビエンス、バランス出力を備え、ライブでの音作りと接続を1台で支援します。",
+      "description_en": "Released in 2016, the Acoustic Preamp adds natural body resonance to pickup-equipped acoustic guitars with Acoustic Resonance, while also providing notch filtering, ambience, and a balanced output for live use.",
+      "lineage_ja": "AC-2／AC-3の「エレキをアコースティック化する」シミュレーターとは用途が異なり、本物のアコースティック楽器用プリアンプとして設計されています。",
+      "lineage_en": "Unlike the AC-2/AC-3 simulators that make electric guitars sound acoustic-like, it is designed as a preamp for actual acoustic instruments.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_ad2_product"
+      ]
+    },
+    {
+      "model": "CP-1X",
+      "description_ja": "2016年発売のCompressor。MDPで音域や演奏の強弱を解析し、コードでも単音でも不自然な潰れや音色変化を抑えながら、演奏ニュアンスを残した自然なコンプレッションを行うモデルです。",
+      "description_en": "Released in 2016, the Compressor uses MDP to analyze register and dynamics, delivering natural compression for chords or single notes while minimizing unwanted squashing and tonal change.",
+      "lineage_ja": "CS-1／CS-2／CS-3の歴史とは別に、MDPでコンプレッションを再設計したXシリーズ世代です。",
+      "lineage_en": "It represents an MDP-based rethinking of compression rather than a conventional continuation of the CS-1/CS-2/CS-3 circuit line.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_cp1x_product",
+        "boss_mdp"
+      ]
+    },
+    {
+      "model": "DS-1-4A",
+      "description_ja": "2017年のBOSSコンパクト40周年を記念して発売された限定版DS-1。基本となるDS-1の機能をベースに、黒を基調とした専用カラーや金色の意匠など、アニバーサリー仕様の外観を与えたコレクター向けモデルです。",
+      "description_en": "A limited DS-1 edition released for the 40th anniversary of the BOSS compact pedal in 2017. It retains the core DS-1 function while adding a special black-and-gold anniversary appearance aimed at collectors.",
+      "lineage_ja": "音色の新世代後継ではなく、DS-1をベースにした記念限定モデルです。",
+      "lineage_en": "It is an anniversary edition based on the DS-1, not a next-generation tonal successor.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_anniversary40"
+      ]
+    },
+    {
+      "model": "JB-2",
+      "description_ja": "2017年発売のAngry Driver。BOSS BD-2 Blues DriverとJHS Pedals Angry Charlieの2つのアナログ歪み回路を1台に搭載し、単独、直列順序の切替、パラレルなど複数の組み合わせで使える公式コラボレーション・モデルです。",
+      "description_en": "Released in 2017, the Angry Driver combines the analog circuits of the BOSS BD-2 Blues Driver and JHS Pedals Angry Charlie in one pedal, supporting either circuit alone plus multiple series and parallel combinations.",
+      "lineage_ja": "BOSS初のJHS Pedalsとの共同開発モデルで、BD-2の系譜を外部ブランドとの組み合わせで拡張した特別な位置づけです。",
+      "lineage_en": "It is BOSS's collaboration with JHS Pedals, extending the BD-2 lineage through a dual-brand drive concept.",
+      "verification": "A",
+      "source_keys": [
+        "boss_40th",
+        "boss_jb2_product"
+      ]
+    },
+    {
+      "model": "MT-2W",
+      "description_ja": "2018年登場のWAZA CRAFT Metal Zone。STANDARDでMT-2のハイゲインと強力な3バンドEQを磨き上げ、CUSTOMではよりタイトな低域とワイドなレンジ、明瞭度を持つ別キャラクターを追加したフルアナログ仕様です。",
+      "description_en": "Introduced in 2018, the WAZA CRAFT Metal Zone refines the MT-2's high gain and powerful three-band EQ in Standard mode while adding a Custom voice with tighter lows, wider range, and greater clarity.",
+      "lineage_ja": "MT-2を置き換えるのではなく、オリジナルと併売されるWAZA上位版です。",
+      "lineage_en": "It is a premium WAZA version offered alongside rather than replacing the original MT-2.",
+      "verification": "A",
+      "source_keys": [
+        "boss_mt2w_product",
+        "boss_waza"
+      ]
+    },
+    {
+      "model": "DC-2W",
+      "description_ja": "2018年登場のWAZA CRAFT Dimension C。1985年のDC-2と、その源流であるRoland SDD-320 Dimension Dのサウンドをモード切替で再現し、一般的なコーラスの大きな揺れとは異なる自然な厚みとステレオの広がりを作ります。",
+      "description_en": "Introduced in 2018, the WAZA CRAFT Dimension C recreates both the 1985 DC-2 and its Roland SDD-320 Dimension D ancestor, producing natural thickness and stereo width without the obvious pitch wobble of a conventional chorus.",
+      "lineage_ja": "DC-2／Roland SDD-320の系譜を公式に復活させたWAZAモデルです。",
+      "lineage_en": "It is BOSS's official WAZA revival of the DC-2/Roland SDD-320 Dimension lineage.",
+      "verification": "A",
+      "source_keys": [
+        "boss_dc2w_product",
+        "boss_dimension_history",
+        "boss_waza"
+      ]
+    }
+  ]
+}
